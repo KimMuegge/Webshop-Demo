@@ -29,6 +29,9 @@ const pickupLocationStorageKey =
 const orderTypeStorageKey =
     "webshopOrderType";
 
+const adminLocationStorageKey =
+    "webshopAdminLocationsV1";
+
 const pickupOrderType =
     "pickup";
 
@@ -68,41 +71,115 @@ let locations = [];
    STANDORTDATEN LADEN
 ===================================================== */
 
+/* =====================================================
+   STANDORTDATEN LADEN
+
+   Reihenfolge:
+
+   1. Verwaltungsstand aus LocalStorage verwenden
+   2. Falls nicht vorhanden: locations.json laden
+   3. Ausschließlich aktive Standorte übernehmen
+===================================================== */
+
 async function loadLocations() {
 
-    const response =
-        await fetch(
-            "data/locations.json"
-        );
+    let locationData =
+        null;
 
 
-    if (!response.ok) {
+    /* =============================================
+       VERWALTUNGSSTAND AUS LOCALSTORAGE
+    ============================================= */
 
-        throw new Error(
-            "Die Standortdaten konnten nicht geladen werden."
+    try {
+
+        const storedLocationData =
+            localStorage.getItem(
+                adminLocationStorageKey
+            );
+
+
+        if (storedLocationData) {
+
+            const parsedLocationData =
+                JSON.parse(
+                    storedLocationData
+                );
+
+
+            if (
+                Array.isArray(
+                    parsedLocationData
+                )
+            ) {
+
+                locationData =
+                    parsedLocationData;
+
+            }
+
+        }
+
+    }
+    catch (error) {
+
+        console.error(
+            "Die Verwaltungsdaten der Standorte "
+            + "konnten nicht geladen werden:",
+            error
         );
 
     }
 
 
-    const locationData =
-        await response.json();
+    /* =============================================
+       FALLBACK: LOCATIONS.JSON
+    ============================================= */
+
+    if (!locationData) {
+
+        const response =
+            await fetch(
+                "data/locations.json"
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Die Standortdaten konnten "
+                + "nicht geladen werden."
+            );
+
+        }
+
+
+        locationData =
+            await response.json();
+
+    }
 
 
     if (!Array.isArray(locationData)) {
 
         throw new Error(
-            "Die Standortdaten besitzen kein gültiges Format."
+            "Die Standortdaten besitzen "
+            + "kein gültiges Format."
         );
 
     }
 
 
+    /* =============================================
+       NUR AKTIVE UND VOLLSTÄNDIGE STANDORTE
+    ============================================= */
+
     locations =
         locationData
             .filter(
                 location =>
-                    location.status === "active"
+                    location.status ===
+                    "active"
             )
             .map(
                 location => {
@@ -118,31 +195,45 @@ async function loadLocations() {
 
                     return {
 
-                        /*
-                           Stabile Standort-ID aus der
-                           zentralen Standortdatei.
-                        */
-
                         id:
-                            String(location.id),
+                            String(
+                                location.id
+                            ),
 
                         name:
-                            String(location.name),
+                            String(
+                                location.name
+                                || ""
+                            ),
 
                         address:
-                            String(location.address),
+                            String(
+                                location.address
+                                || ""
+                            ),
 
                         zip:
-                            String(location.postalCode),
+                            String(
+                                location.postalCode
+                                || ""
+                            ),
 
                         city:
-                            String(location.city),
+                            String(
+                                location.city
+                                || ""
+                            ),
 
                         day:
-                            String(location.pickupDay),
+                            String(
+                                location.pickupDay
+                                || ""
+                            ),
 
                         dayOfWeek:
-                            Number(location.weekdayNumber),
+                            Number(
+                                location.weekdayNumber
+                            ),
 
                         time:
                             `${pickupStart} bis ${pickupEnd} Uhr`,
@@ -152,10 +243,14 @@ async function loadLocations() {
                         },
 
                         lat:
-                            Number(location.latitude),
+                            Number(
+                                location.latitude
+                            ),
 
                         lng:
-                            Number(location.longitude)
+                            Number(
+                                location.longitude
+                            )
 
                     };
 
@@ -1877,6 +1972,48 @@ if (requiredElementsAvailable) {
 
 }
 
+/* =====================================================
+   ÄNDERUNGEN AUS DER STANDORTVERWALTUNG ERKENNEN
+
+   Wird ausgelöst, wenn der LocalStorage in einem
+   anderen Browser-Tab geändert wurde.
+===================================================== */
+
+window.addEventListener(
+    "storage",
+    event => {
+
+        if (
+            event.key ===
+            adminLocationStorageKey
+        ) {
+
+            window.location.reload();
+
+        }
+
+    }
+);
+
+/* =====================================================
+   ÄNDERUNGEN DER STANDORTVERWALTUNG ERKENNEN
+===================================================== */
+
+window.addEventListener(
+    "storage",
+    event => {
+
+        if (
+            event.key ===
+            adminLocationStorageKey
+        ) {
+
+            window.location.reload();
+
+        }
+
+    }
+);
 
 /* =====================================================
    START

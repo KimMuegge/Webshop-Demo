@@ -324,7 +324,6 @@ const requiredElementsAvailable =
     && productGrid
     && emptyProducts
     && resetProductFilters
-    && cartCount
     && cartCtaCount;
 
 
@@ -466,15 +465,22 @@ function isValidPickupLocation(location) {
 
 
     return (
-        Number.isFinite(
-            Number(location.id)
-        )
+        String(location.id || "").trim() !== ""
         && String(location.name || "").trim() !== ""
         && String(location.address || "").trim() !== ""
         && String(location.zip || "").trim() !== ""
         && String(location.city || "").trim() !== ""
         && String(location.day || "").trim() !== ""
         && String(location.time || "").trim() !== ""
+        && Number.isInteger(
+            Number(location.dayOfWeek)
+        )
+        && Number.isFinite(
+            Number(location.lat)
+        )
+        && Number.isFinite(
+            Number(location.lng)
+        )
         && parseStoredDate(
             location.pickupDate
         ) !== null
@@ -484,8 +490,6 @@ function isValidPickupLocation(location) {
     );
 
 }
-
-
 /* =====================================================
    ABHOLSTANDORT LADEN
 
@@ -537,7 +541,7 @@ function loadPickupLocation() {
         return {
 
             id:
-                Number(parsedLocation.id),
+                String(parsedLocation.id),
 
             name:
                 String(parsedLocation.name),
@@ -1176,21 +1180,50 @@ function updateCartCount() {
         );
 
 
-    cartCount.textContent =
-        String(totalQuantity);
+    /*
+       Warenkorb im zentralen Header.
+
+       Der Header wird dynamisch geladen und ist deshalb
+       beim ersten Aufruf eventuell noch nicht vorhanden.
+    */
+
+    const currentHeaderCartCount =
+        document.querySelector(
+            "#cartCount"
+        );
 
 
-    cartCtaCount.textContent =
-        String(totalQuantity);
+    if (currentHeaderCartCount) {
+
+        currentHeaderCartCount.textContent =
+            String(totalQuantity);
 
 
-    cartCount.setAttribute(
-        "aria-label",
-        `${totalQuantity} Artikel im Warenkorb`
-    );
+        currentHeaderCartCount.setAttribute(
+            "aria-label",
+            `${totalQuantity} Artikel im Warenkorb`
+        );
+
+    }
+
+
+    /*
+       Warenkorb-Anzeige innerhalb der Sortimentseite.
+    */
+
+    if (cartCtaCount) {
+
+        cartCtaCount.textContent =
+            String(totalQuantity);
+
+    }
 
 }
 
+document.addEventListener(
+    "sharedComponentsLoaded",
+    updateCartCount
+);
 
 /* =====================================================
    VERSANDWARE PRÜFEN
