@@ -53,6 +53,138 @@ const defaultOrderDeadline = {
 
 };
 
+/* =====================================================
+   STANDORTDATEN
+
+   Die Daten werden zentral aus locations.json geladen.
+   Im öffentlichen Standortfinder werden ausschließlich
+   aktive Standorte verwendet.
+===================================================== */
+
+let locations = [];
+
+
+/* =====================================================
+   STANDORTDATEN LADEN
+===================================================== */
+
+async function loadLocations() {
+
+    const response =
+        await fetch(
+            "data/locations.json"
+        );
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            "Die Standortdaten konnten nicht geladen werden."
+        );
+
+    }
+
+
+    const locationData =
+        await response.json();
+
+
+    if (!Array.isArray(locationData)) {
+
+        throw new Error(
+            "Die Standortdaten besitzen kein gültiges Format."
+        );
+
+    }
+
+
+    locations =
+        locationData
+            .filter(
+                location =>
+                    location.status === "active"
+            )
+            .map(
+                location => {
+
+                    const pickupStart =
+                        location.pickupStart
+                        || "";
+
+                    const pickupEnd =
+                        location.pickupEnd
+                        || "";
+
+
+                    return {
+
+                        /*
+                           Stabile Standort-ID aus der
+                           zentralen Standortdatei.
+                        */
+
+                        id:
+                            String(location.id),
+
+                        name:
+                            String(location.name),
+
+                        address:
+                            String(location.address),
+
+                        zip:
+                            String(location.postalCode),
+
+                        city:
+                            String(location.city),
+
+                        day:
+                            String(location.pickupDay),
+
+                        dayOfWeek:
+                            Number(location.weekdayNumber),
+
+                        time:
+                            `${pickupStart} bis ${pickupEnd} Uhr`,
+
+                        orderDeadline: {
+                            ...defaultOrderDeadline
+                        },
+
+                        lat:
+                            Number(location.latitude),
+
+                        lng:
+                            Number(location.longitude)
+
+                    };
+
+                }
+            )
+            .filter(
+                location => {
+
+                    return (
+                        location.name
+                        && location.address
+                        && location.zip
+                        && location.city
+                        && location.day
+                        && Number.isInteger(
+                            location.dayOfWeek
+                        )
+                        && Number.isFinite(
+                            location.lat
+                        )
+                        && Number.isFinite(
+                            location.lng
+                        )
+                    );
+
+                }
+            );
+
+}
 
 /* =====================================================
    STANDORTDATEN
@@ -68,248 +200,7 @@ const defaultOrderDeadline = {
    6 = Samstag
 ===================================================== */
 
-const locations = [
 
-    /* =============================================
-       STANDORT 1: AUGUSTDORF
-    ============================================= */
-
-    {
-        id: 1,
-
-        name:
-            "Augustdorf",
-
-        address:
-            "Lopshorner Weg 33A",
-
-        zip:
-            "32832",
-
-        city:
-            "Augustdorf",
-
-        day:
-            "Dienstag",
-
-        dayOfWeek:
-            2,
-
-        time:
-            "16:30 bis 17:30 Uhr",
-
-        orderDeadline: {
-            ...defaultOrderDeadline
-        },
-
-        lat:
-            51.9079609,
-
-        lng:
-            8.7488264
-    },
-
-
-    /* =============================================
-       STANDORT 2: DEMODATEN
-    ============================================= */
-
-    {
-        id: 2,
-
-        name:
-            "Demo-Standort Detmold",
-
-        address:
-            "Beispielweg 12",
-
-        zip:
-            "32756",
-
-        city:
-            "Detmold",
-
-        day:
-            "Donnerstag",
-
-        dayOfWeek:
-            4,
-
-        time:
-            "14:00 bis 17:00 Uhr",
-
-        orderDeadline: {
-            ...defaultOrderDeadline
-        },
-
-        lat:
-            51.936,
-
-        lng:
-            8.879
-    },
-
-
-    /* =============================================
-       STANDORT 3: DEMODATEN
-    ============================================= */
-
-    {
-        id: 3,
-
-        name:
-            "Demo-Standort Lage",
-
-        address:
-            "Testallee 8",
-
-        zip:
-            "32791",
-
-        city:
-            "Lage",
-
-        day:
-            "Freitag",
-
-        dayOfWeek:
-            5,
-
-        time:
-            "16:00 bis 19:00 Uhr",
-
-        orderDeadline: {
-            ...defaultOrderDeadline
-        },
-
-        lat:
-            51.992,
-
-        lng:
-            8.793
-    },
-
-
-    /* =============================================
-       STANDORT 4: DEMODATEN
-    ============================================= */
-
-    {
-        id: 4,
-
-        name:
-            "Demo-Standort Bielefeld",
-
-        address:
-            "Musterplatz 5",
-
-        zip:
-            "33602",
-
-        city:
-            "Bielefeld",
-
-        day:
-            "Samstag",
-
-        dayOfWeek:
-            6,
-
-        time:
-            "10:00 bis 13:00 Uhr",
-
-        orderDeadline: {
-            ...defaultOrderDeadline
-        },
-
-        lat:
-            52.030,
-
-        lng:
-            8.533
-    },
-
-
-    /* =============================================
-       STANDORT 5: DEMODATEN
-    ============================================= */
-
-    {
-        id: 5,
-
-        name:
-            "Demo-Standort Paderborn",
-
-        address:
-            "Beispielstraße 24",
-
-        zip:
-            "33098",
-
-        city:
-            "Paderborn",
-
-        day:
-            "Dienstag",
-
-        dayOfWeek:
-            2,
-
-        time:
-            "15:30 bis 18:30 Uhr",
-
-        orderDeadline: {
-            ...defaultOrderDeadline
-        },
-
-        lat:
-            51.718,
-
-        lng:
-            8.754
-    },
-
-
-    /* =============================================
-       STANDORT 6: DEMODATEN
-    ============================================= */
-
-    {
-        id: 6,
-
-        name:
-            "Demo-Standort Lemgo",
-
-        address:
-            "Testweg 4",
-
-        zip:
-            "32657",
-
-        city:
-            "Lemgo",
-
-        day:
-            "Montag",
-
-        dayOfWeek:
-            1,
-
-        time:
-            "16:00 bis 19:00 Uhr",
-
-        orderDeadline: {
-            ...defaultOrderDeadline
-        },
-
-        lat:
-            52.027,
-
-        lng:
-            8.901
-    }
-
-];
 
 
 /* =====================================================
@@ -935,7 +826,7 @@ function selectLocation(id) {
     const location =
         locations.find(
             item =>
-                item.id === Number(id)
+                item.id === String(id)
         );
 
 
@@ -959,17 +850,16 @@ function selectLocation(id) {
             element => {
 
                 const elementId =
-                    Number(
+                    String(
                         element.dataset.id
                     );
 
 
                 element.classList.toggle(
                     "active",
-                    elementId
-                        === Number(id)
+                    elementId === String(id)
                 );
-
+ 
             }
         );
 
@@ -990,7 +880,7 @@ function selectLocation(id) {
 
     const marker =
         markers.get(
-            Number(id)
+            String(id)
         );
 
 
@@ -1046,7 +936,7 @@ function savePickupLocation(
     const pickupLocation = {
 
         id:
-            Number(location.id),
+            String(location.id),
 
         name:
             String(location.name),
@@ -1179,7 +1069,7 @@ function choosePickupLocation(id) {
     const location =
         locations.find(
             item =>
-                item.id === Number(id)
+                item.id === String(id)
         );
 
 
@@ -1344,11 +1234,6 @@ function renderLocations() {
                                         }.
                                     </p>
 
-                                    <small>
-                                        Bestellungen müssen spätestens
-                                        am Vortag bis 21:15 Uhr
-                                        abgeschlossen werden.
-                                    </small>
 
                                 </div>
 
@@ -1358,7 +1243,7 @@ function renderLocations() {
                             <button
                                 class="choose-button"
                                 type="button"
-                                onclick="choosePickupLocation(${location.id})"
+                                onclick="choosePickupLocation('${location.id}')"
                             >
                                 Auswählen
                             </button>
@@ -1997,27 +1882,97 @@ if (requiredElementsAvailable) {
    START
 ===================================================== */
 
-if (
-    requiredElementsAvailable
-    && leafletAvailable
-) {
+async function initializeLocationFinder() {
 
-    createLocationMarkers();
+    if (
+        !requiredElementsAvailable
+        || !leafletAvailable
+    ) {
+        return;
+    }
 
-    renderLocations();
+
+    try {
+
+        await loadLocations();
 
 
-    window.setTimeout(
-        () => {
+        if (locations.length === 0) {
 
-            if (map) {
+            throw new Error(
+                "Es wurden keine aktiven Standorte gefunden."
+            );
 
-                map.invalidateSize();
+        }
 
-            }
 
-        },
-        150
-    );
+        createLocationMarkers();
+
+        renderLocations();
+
+
+        window.setTimeout(
+            () => {
+
+                if (map) {
+
+                    map.invalidateSize();
+
+                }
+
+            },
+            150
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Der Standortfinder konnte nicht gestartet werden:",
+            error
+        );
+
+
+        resultCount.textContent =
+            "0 Standorte";
+
+
+        locationList.innerHTML = "";
+
+
+        emptyState.hidden =
+            false;
+
+
+        locationList.hidden =
+            true;
+
+
+        const emptyHeading =
+            emptyState.querySelector("h2");
+
+        const emptyText =
+            emptyState.querySelector("p");
+
+
+        if (emptyHeading) {
+
+            emptyHeading.textContent =
+                "Standorte konnten nicht geladen werden";
+
+        }
+
+
+        if (emptyText) {
+
+            emptyText.textContent =
+                "Bitte versuche es später erneut.";
+
+        }
+
+    }
 
 }
+
+
+initializeLocationFinder();
