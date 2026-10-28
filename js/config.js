@@ -1,5 +1,5 @@
 const SHOP_CONFIG = {
-    companyName: "[TEST]",
+    companyName: "[24fresh]",
     slogan: "[SLOGAN]",
     logo: "images/logo.webp",
     phone: "[TELEFONNUMMER]",
