@@ -94,25 +94,17 @@
     height: 58px;
 
     display: grid;
-
     place-items: center;
 
     flex-shrink: 0;
 
     overflow: hidden;
 
-    color: #527044;
+    border: none;
+    border-radius: 0;
 
-    border:
-        2px dashed #8bab79;
-
-    border-radius: 10px;
-
-    font-size: 12px;
-
-    font-weight: 800;
+    background: transparent;
 }
-
 
 .site-logo {
     width: 100%;
@@ -124,9 +116,21 @@
 }
 
 
-.logo-placeholder {
+/* Logo wirklich ausblenden, solange kein Bild geladen ist */
+
+.site-logo[hidden] {
+    display: none;
+}
+
+
+.logo-placeholder[hidden] {
+    display: none;
+}
+
+.logo-placeholder:not([hidden]) {
     display: inline-block;
 }
+
 
 
 .site-brand-text {
