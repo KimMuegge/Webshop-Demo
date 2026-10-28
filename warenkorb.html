@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Warenkorb | [FIRMENNAME]
+    </title>
+
+    <meta
+        name="description"
+        content="Prüfe deine ausgewählten Produkte und fahre anschließend mit deiner Bestellung fort."
+    >
+
+    <link
+        rel="stylesheet"
+        href="warenkorb.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="theme.css"
+    >
+
+    <link 
+        rel="stylesheet"   
+        href="components.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         HEADER
+    ================================================== -->
+
+    <div id="siteHeader"></div>
+
+
+
+    <!-- =================================================
+         WARENKORB
+    ================================================== -->
+
+    <main class="cart-page">
+
+        <div class="cart-container">
+
+
+            <!-- =================================================
+                 ZURÜCK ZUM PASSENDEN SORTIMENT
+
+                 Das Ziel wird von warenkorb.js festgelegt.
+            ================================================== -->
+
+            <a
+                id="continueShoppingLink"
+                class="back-link"
+                href="index.html"
+            >
+                ← Weiter einkaufen
+            </a>
+
+
+
+            <!-- =================================================
+                 ÜBERSCHRIFT
+            ================================================== -->
+
+            <section class="cart-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        DEINE BESTELLUNG
+                    </p>
+
+                    <h1>
+                        Warenkorb
+                    </h1>
+
+                    <p>
+                        Prüfe deine Produkte und Mengen,
+                        bevor du mit der Bestellung fortfährst.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="cart-heading-icon"
+                    aria-hidden="true"
+                >
+                    🛒
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 WARENKORB-LAYOUT
+            ================================================== -->
+
+            <div class="cart-layout">
+
+
+                <!-- =================================================
+                     PRODUKTE
+                ================================================== -->
+
+                <section class="cart-products">
+
+
+                    <div class="cart-products-header">
+
+                        <strong>
+                            Deine Produkte
+                        </strong>
+
+                        <span
+                            id="cartItemCount"
+                            aria-live="polite"
+                        >
+                            0 Artikel
+                        </span>
+
+                    </div>
+
+
+                    <!-- Produkte werden von warenkorb.js eingefügt -->
+
+                    <div id="cartItems">
+                    </div>
+
+
+
+                    <!-- =================================================
+                         LEERER WARENKORB
+                    ================================================== -->
+
+                    <div
+                        id="emptyCart"
+                        class="empty-cart"
+                        hidden
+                    >
+
+                        <div
+                            class="empty-cart-icon"
+                            aria-hidden="true"
+                        >
+                            🛒
+                        </div>
+
+                        <h2>
+                            Dein Warenkorb ist leer
+                        </h2>
+
+                        <p>
+                            Wähle zuerst deinen Bestellweg und
+                            entdecke unser aktuelles Sortiment.
+                        </p>
+
+                        <a
+                            class="continue-shopping-button"
+                            href="index.html"
+                        >
+                            Produkte entdecken
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     ZUSAMMENFASSUNG
+                ================================================== -->
+
+                <aside class="cart-summary">
+
+                    <h2>
+                        Zusammenfassung
+                    </h2>
+
+
+                    <!-- ZWISCHENSUMME -->
+
+                    <div class="summary-row">
+
+                        <span>
+                            Zwischensumme
+                        </span>
+
+                        <strong id="subtotal">
+                            0,00 €
+                        </strong>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         BESTELLART
+
+                         Wird von JS zu
+
+                         Versand / wird später berechnet
+
+                         oder
+
+                         Abholung / 0,00 €
+
+                         geändert.
+                    ================================================== -->
+
+                    <div class="summary-row">
+
+                        <span id="fulfillmentLabel">
+                            Bestellart
+                        </span>
+
+                        <span
+                            id="fulfillmentValue"
+                            class="shipping-calculation"
+                        >
+                            –
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-divider">
+                    </div>
+
+
+
+                    <!-- WARENWERT -->
+
+                    <div class="summary-row total-row">
+
+                        <span>
+                            Warenwert
+                        </span>
+
+                        <strong id="total">
+                            0,00 €
+                        </strong>
+
+                    </div>
+
+
+                    <p class="tax-note">
+                        Alle Preise verstehen sich als Bruttopreise.
+                    </p>
+
+
+
+                    <button
+                        id="checkoutButton"
+                        class="checkout-button"
+                        type="button"
+                    >
+                        Weiter zur Kasse
+                    </button>
+
+
+
+                    <div class="summary-info">
+
+                        <span aria-hidden="true">
+                            🔒
+                        </span>
+
+                        <p>
+                            Deine Kontaktdaten und gegebenenfalls
+                            Lieferdaten werden erst im nächsten
+                            Schritt erfasst.
+                        </p>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 BESTELLINFORMATION
+            ================================================== -->
+
+            <section class="cart-note">
+
+                <div
+                    class="cart-note-icon"
+                    aria-hidden="true"
+                >
+                    ℹ️
+                </div>
+
+
+                <div>
+
+                    <strong id="cartInformationTitle">
+                        Abholung oder Versand
+                    </strong>
+
+                    <p id="cartInformationText">
+                        Dein Warenkorb berücksichtigt den
+                        ausgewählten Bestellweg.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+<!-- =================================================
+     ZENTRALER FOOTER
+================================================= -->
+
+<div id="siteFooter"></div>
+
+<!-- =================================================
+         JAVASCRIPT
+================================================== -->
+
+    <script src="warenkorb.js"></script>
+    <script src="theme.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/components.js"></script>
+
+
+</body>
+
+</html>

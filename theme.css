@@ -1,0 +1,1079 @@
+/* =====================================================
+   WEBSHOP PROTOTYP
+   GLOBALER LIGHT / DARK MODE
+===================================================== */
+
+
+/* =====================================================
+   DARK-MODE-VARIABLEN
+===================================================== */
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --green: #73b98d;
+    --green-dark: #d9f1e1;
+    --green-main: #65ad80;
+    --green-medium: #9ac9aa;
+
+    --green-light: #203a2d;
+    --green-extra-light: #192b22;
+
+    --orange: #ff9857;
+    --orange-main: #f58d4c;
+    --orange-dark: #ffae76;
+    --orange-light: #3b2b20;
+
+    --text: #eef5ef;
+    --text-main: #eef5ef;
+    --text-secondary: #b7c9bd;
+    --text-muted: #b7c9bd;
+
+    --white: #18251e;
+
+    --background: #0f1713;
+    --page-background: #0f1713;
+
+    --border: #304138;
+
+    --shadow:
+        0 12px 32px rgba(0, 0, 0, 0.32);
+
+    --shadow-small:
+        0 10px 26px rgba(0, 0, 0, 0.28);
+
+    --shadow-medium:
+        0 18px 42px rgba(0, 0, 0, 0.38);
+
+    --shadow-hover:
+        0 18px 42px rgba(0, 0, 0, 0.40);
+}
+
+
+/* =====================================================
+   WEICHER THEME-WECHSEL
+===================================================== */
+
+body,
+.header,
+.footer,
+.hero,
+.shop-selection,
+.mission,
+.shopping-card,
+.shipping-intro,
+.product-tools,
+.products,
+.product-card,
+.product-empty-state,
+.shipping-note,
+.results-panel,
+.map-panel,
+.location-item,
+.search-field,
+.day-filter,
+.note,
+.cart-products,
+.cart-summary,
+.cart-heading,
+.cart-item,
+.cart-note,
+.account-card,
+.account-benefits,
+.benefit,
+.guest-information,
+.privacy-note {
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =====================================================
+   THEME BUTTON
+===================================================== */
+
+.theme-toggle {
+    width: 44px;
+    height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    color: #173e2d;
+
+    background-color: #edf6e8;
+
+    border:
+        1px
+        solid rgba(29, 90, 58, 0.20);
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+
+    border-color: #1d5a3a;
+}
+
+.theme-toggle:focus-visible {
+    outline:
+        3px
+        solid rgba(233, 104, 22, 0.35);
+
+    outline-offset: 3px;
+}
+
+
+/* =====================================================
+   THEME BUTTON DARK MODE
+===================================================== */
+
+html[data-theme="dark"] .theme-toggle {
+    color: #ffe5b5;
+
+    background-color: #263a2f;
+
+    border-color:
+        rgba(217, 241, 225, 0.20);
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+    background-color: #304b3a;
+
+    border-color: #73b98d;
+}
+
+
+/* =====================================================
+   GLOBALER KONTO-LINK
+===================================================== */
+
+.account-link {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 42px;
+
+    padding:
+        8px
+        14px;
+
+    color: #123d2b !important;
+
+    background-color: #edf6e8;
+
+    border:
+        1px
+        solid rgba(29, 90, 58, 0.14);
+
+    border-radius: 999px;
+
+    text-decoration: none !important;
+
+    font-size: 14px !important;
+    font-weight: 800 !important;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.account-link:hover {
+    color: #ffffff !important;
+
+    background-color: #1d5a3a;
+
+    border-color: #1d5a3a;
+
+    transform: translateY(-1px);
+}
+
+.account-link:focus-visible {
+    outline:
+        3px
+        solid rgba(233, 104, 22, 0.30);
+
+    outline-offset: 3px;
+}
+
+.account-icon-small {
+    font-size: 17px;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   KONTO-LINK DARK MODE
+===================================================== */
+
+html[data-theme="dark"] .account-link {
+    color: #eef5ef !important;
+
+    background-color: #24382c;
+
+    border-color:
+        rgba(217, 241, 225, 0.17);
+}
+
+html[data-theme="dark"] .account-link:hover {
+    color: #ffffff !important;
+
+    background-color: #477b5a;
+
+    border-color: #477b5a;
+}
+
+
+/* =====================================================
+   ALLGEMEINER DARK MODE
+===================================================== */
+
+html[data-theme="dark"] body {
+    color: #eef5ef;
+
+    background-color: #0f1713;
+}
+
+
+/* =====================================================
+   HEADER DARK MODE
+===================================================== */
+
+html[data-theme="dark"] .header {
+    background-color: #15231b;
+
+    border-color: #2a3d31;
+}
+
+html[data-theme="dark"] .navigation a {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .navigation a:hover {
+    color: #ff9857;
+}
+
+html[data-theme="dark"] .company-name {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .slogan {
+    color: #aabbb0;
+}
+
+html[data-theme="dark"] .logo {
+    color: #add0b8;
+
+    border-color: #547461;
+}
+
+
+/* =====================================================
+   STARTSEITE
+===================================================== */
+
+/* HERO */
+
+html[data-theme="dark"] .hero {
+    background-image:
+        linear-gradient(
+            rgba(8, 18, 12, 0.64),
+            rgba(8, 18, 12, 0.76)
+        ),
+        url("images/hero.png");
+}
+
+html[data-theme="dark"] .hero h1 {
+    color: #f1f8f3;
+}
+
+html[data-theme="dark"] .hero-introduction {
+    color: #d7e8dc;
+}
+
+html[data-theme="dark"] .hero-label {
+    color: #d9f1e1;
+
+    background-color:
+        rgba(20, 37, 28, 0.88);
+
+    border-color:
+        rgba(217, 241, 225, 0.16);
+}
+
+
+/* SHOP-AUSWAHL */
+
+html[data-theme="dark"] .shop-selection {
+    background-color: #0f1713;
+}
+
+html[data-theme="dark"] .section-heading h2 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .section-heading p {
+    color: #b7c9bd;
+}
+
+
+/* ABHOLKARTE */
+
+html[data-theme="dark"] .pickup-card {
+    background-color: #1b3025;
+
+    border-color: #304b3a;
+}
+
+
+/* VERSANDKARTE */
+
+html[data-theme="dark"] .shipping-card {
+    background-color: #34271e;
+
+    border-color: #59402d;
+}
+
+html[data-theme="dark"] .shopping-card h2 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .shopping-card p {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .icon {
+    background-color: #24382c;
+
+    border-color: #24382c;
+}
+
+
+/* LEBENSMITTELRETTUNG */
+
+html[data-theme="dark"] .mission {
+    background-color: #142119;
+
+    border-color: #2a3d31;
+}
+
+html[data-theme="dark"] .mission-icon {
+    background-color: #24382c;
+}
+
+html[data-theme="dark"] .mission h2 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .mission p {
+    color: #b7c9bd;
+}
+
+
+/* =====================================================
+   ABHOLSEITE
+===================================================== */
+
+html[data-theme="dark"] .intro h1 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .intro-center > p:last-child {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .back-link {
+    color: #8ec99f;
+}
+
+html[data-theme="dark"] .intro-icon {
+    background-color: #203a2d;
+}
+
+
+/* SUCHE */
+
+html[data-theme="dark"] .search-field,
+html[data-theme="dark"] .day-filter {
+    color: #eef5ef;
+
+    background-color: #18251e;
+
+    border-color: #304138;
+}
+
+html[data-theme="dark"] .search-field input,
+html[data-theme="dark"] .day-filter select {
+    color: #eef5ef;
+
+    background-color: transparent;
+}
+
+html[data-theme="dark"] .search-field input::placeholder {
+    color: #91a398;
+}
+
+html[data-theme="dark"] .search-field button {
+    color: #b7c9bd;
+}
+
+
+/* STANDORTLISTE */
+
+html[data-theme="dark"] .results-panel,
+html[data-theme="dark"] .map-panel {
+    background-color: #18251e;
+
+    border-color: #304138;
+}
+
+html[data-theme="dark"] .results-head {
+    border-color: #2a3b31;
+}
+
+html[data-theme="dark"] .results-head strong {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .results-head span {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .location-item {
+    background-color: #18251e;
+
+    border-color: #2a3b31;
+}
+
+html[data-theme="dark"] .location-item:hover,
+html[data-theme="dark"] .location-item.active {
+    background-color: #24382c;
+}
+
+html[data-theme="dark"] .location-copy h2 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .location-copy p {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .pin {
+    background-color: #294233;
+}
+
+html[data-theme="dark"] .meta {
+    color: #acd0b8;
+}
+
+html[data-theme="dark"] .empty-state h2 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .empty-state p {
+    color: #b7c9bd;
+}
+
+
+/* KARTE */
+
+html[data-theme="dark"] .map-note {
+    color: #b7c9bd;
+
+    background-color: #142119;
+}
+
+html[data-theme="dark"] .leaflet-tile-pane {
+    filter:
+        brightness(0.72)
+        contrast(1.12)
+        saturate(0.80);
+}
+
+html[data-theme="dark"] .leaflet-control-zoom a,
+html[data-theme="dark"] .leaflet-popup-content-wrapper,
+html[data-theme="dark"] .leaflet-popup-tip {
+    color: #eef5ef;
+
+    background-color: #18251e;
+}
+
+
+/* HINWEIS */
+
+html[data-theme="dark"] .note {
+    background-color: #20362a;
+}
+
+html[data-theme="dark"] .note > div {
+    background-color: #18251e;
+}
+
+html[data-theme="dark"] .note p {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .note strong {
+    color: #eef5ef;
+}
+
+
+/* =====================================================
+   VERSANDSEITE
+===================================================== */
+
+html[data-theme="dark"] .shipping-intro {
+    background:
+        linear-gradient(
+            145deg,
+            #231c17,
+            #17231c
+        );
+}
+
+html[data-theme="dark"] .intro-content h1 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .intro-text {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .shipping-info span {
+    color: #f5d7bf;
+
+    background-color: #34271e;
+
+    border-color: #60432f;
+}
+
+
+/* PRODUKTSUCHE */
+
+html[data-theme="dark"] .product-tools,
+html[data-theme="dark"] .products {
+    background-color: #0f1713;
+}
+
+html[data-theme="dark"] .category-filter {
+    color: #eef5ef;
+
+    background-color: #18251e;
+
+    border-color: #304138;
+}
+
+html[data-theme="dark"] .category-filter select {
+    color: #eef5ef;
+
+    background-color: transparent;
+}
+
+
+/* PRODUKTÜBERSICHT */
+
+html[data-theme="dark"] .products-heading h2 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .product-count {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .product-card {
+    background-color: #18251e;
+
+    border-color: #304138;
+}
+
+html[data-theme="dark"] .product-content h3 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .product-unit {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .price {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .placeholder-image {
+    color: #9db0a4;
+
+    background:
+        linear-gradient(
+            145deg,
+            #213229,
+            #17231c
+        );
+}
+
+
+/* LEERER PRODUKTFILTER */
+
+html[data-theme="dark"] .product-empty-state {
+    background-color: #18251e;
+
+    border-color: #304138;
+}
+
+html[data-theme="dark"] .product-empty-state h3 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .product-empty-state p {
+    color: #b7c9bd;
+}
+
+
+/* VERSANDHINWEIS */
+
+html[data-theme="dark"] .shipping-note {
+    background-color: #34271e;
+
+    border-color: #60432f;
+}
+
+html[data-theme="dark"] .shipping-note strong {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .shipping-note p {
+    color: #d4c2b3;
+}
+
+html[data-theme="dark"] .note-icon {
+    background-color: #18251e;
+}
+
+
+/* =====================================================
+   WARENKORB
+===================================================== */
+
+html[data-theme="dark"] .cart-page {
+    background-color: #0f1713;
+}
+
+
+/* WARENKORB-KOPF */
+
+html[data-theme="dark"] .cart-heading {
+    background:
+        linear-gradient(
+            145deg,
+            #1a3024,
+            #16261d
+        );
+
+    border-color: #30463a;
+}
+
+html[data-theme="dark"] .cart-heading h1 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .cart-heading p {
+    color: #b7c9bd;
+}
+
+
+/* PRODUKTLISTE */
+
+html[data-theme="dark"] .cart-products {
+    background-color: #18251e;
+
+    border-color: #304138;
+}
+
+html[data-theme="dark"] .cart-products-header {
+    border-color: #304138;
+}
+
+html[data-theme="dark"] .cart-products-header strong {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .cart-products-header span {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .cart-item {
+    border-color: #2a3b31;
+}
+
+html[data-theme="dark"] .cart-item:hover {
+    background-color: #203128;
+}
+
+html[data-theme="dark"] .cart-item-image {
+    color: #9eafa4;
+
+    background-color: #22332a;
+}
+
+html[data-theme="dark"] .cart-item-content h3,
+html[data-theme="dark"] .cart-item-price {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .cart-item-unit {
+    color: #b7c9bd;
+}
+
+
+/* MENGENSTEUERUNG */
+
+html[data-theme="dark"] .quantity-control {
+    background-color: #213229;
+
+    border-color: #3a5042;
+}
+
+html[data-theme="dark"] .quantity-button {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .quantity-button:hover {
+    background-color: #2d4738;
+}
+
+
+/* LEERER WARENKORB */
+
+html[data-theme="dark"] .empty-cart h2 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .empty-cart p {
+    color: #b7c9bd;
+}
+
+
+/* ZUSAMMENFASSUNG */
+
+html[data-theme="dark"] .cart-summary {
+    background-color: #18251e;
+
+    border-color: #304138;
+}
+
+html[data-theme="dark"] .cart-summary h2 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .summary-row {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .summary-row strong,
+html[data-theme="dark"] .total-row {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .shipping-calculation,
+html[data-theme="dark"] .tax-note {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .summary-divider {
+    background-color: #31443a;
+}
+
+html[data-theme="dark"] .summary-info {
+    background-color: #20362a;
+}
+
+html[data-theme="dark"] .summary-info p {
+    color: #b7c9bd;
+}
+
+
+/* WARENKORB-HINWEIS */
+
+html[data-theme="dark"] .cart-note {
+    background-color: #34271e;
+
+    border-color: #60432f;
+}
+
+html[data-theme="dark"] .cart-note-icon {
+    background-color: #18251e;
+}
+
+html[data-theme="dark"] .cart-note strong {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .cart-note p {
+    color: #d4c2b3;
+}
+
+
+/* =====================================================
+   KUNDENKONTO
+===================================================== */
+
+html[data-theme="dark"] .account-page {
+    background-color: #0f1713;
+}
+
+html[data-theme="dark"] .account-intro h1 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .account-intro > p:last-child {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .account-icon {
+    color: #eef5ef;
+
+    background-color: #203a2d;
+}
+
+
+/* KONTO-KARTEN */
+
+html[data-theme="dark"] .account-card,
+html[data-theme="dark"] .benefit {
+    background-color: #18251e;
+
+    border-color: #304138;
+}
+
+html[data-theme="dark"] .account-card h2,
+html[data-theme="dark"] .benefits-heading h2,
+html[data-theme="dark"] .benefit h3 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .card-description,
+html[data-theme="dark"] .benefit p {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .card-icon {
+    background-color: #203a2d;
+}
+
+html[data-theme="dark"] .register-card .card-icon {
+    background-color: #3b2b20;
+}
+
+
+/* FORMULARE */
+
+html[data-theme="dark"] .account-form > label {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .account-form input[type="text"],
+html[data-theme="dark"] .account-form input[type="email"],
+html[data-theme="dark"] .account-form input[type="password"] {
+    color: #eef5ef;
+
+    background-color: #111c16;
+
+    border-color: #34483b;
+}
+
+html[data-theme="dark"] .account-form input::placeholder {
+    color: #7f9286;
+}
+
+html[data-theme="dark"] .account-form input:focus {
+    background-color: #15231b;
+
+    border-color: #65ad80;
+}
+
+html[data-theme="dark"] .password-toggle {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .password-toggle:hover {
+    background-color: #24382c;
+}
+
+html[data-theme="dark"] .checkbox-field span {
+    color: #b7c9bd;
+}
+
+
+/* GASTZUGANG */
+
+html[data-theme="dark"] .guest-information {
+    background-color: #20362a;
+
+    border-color: #304b3a;
+}
+
+html[data-theme="dark"] .guest-icon {
+    background-color: #18251e;
+}
+
+html[data-theme="dark"] .guest-copy h2 {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .guest-copy p {
+    color: #b7c9bd;
+}
+
+html[data-theme="dark"] .guest-button {
+    color: #eef5ef;
+
+    background-color: #18251e;
+
+    border-color: #41604c;
+}
+
+
+/* DATENSCHUTZ */
+
+html[data-theme="dark"] .privacy-note {
+    background-color: #34271e;
+
+    border-color: #60432f;
+}
+
+html[data-theme="dark"] .privacy-icon {
+    background-color: #18251e;
+}
+
+html[data-theme="dark"] .privacy-note strong {
+    color: #eef5ef;
+}
+
+html[data-theme="dark"] .privacy-note p {
+    color: #d4c2b3;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+html[data-theme="dark"] .footer {
+    color: #eef5ef;
+
+    background-color: #09110d;
+
+    border-top:
+        1px solid #24342b;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .theme-toggle {
+        flex-shrink: 0;
+    }
+
+    .account-link {
+        flex-shrink: 0;
+    }
+
+}
+
+
+/* =====================================================
+   SMARTPHONE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    /* THEME */
+
+    .theme-toggle {
+        width: 42px;
+        height: 42px;
+
+        font-size: 18px;
+    }
+
+
+    /* KONTO-LINK */
+
+    .account-link {
+        width: 42px;
+        height: 42px;
+
+        min-height: 42px;
+
+        padding: 0;
+
+        flex-shrink: 0;
+
+        border-radius: 50%;
+    }
+
+    .account-text {
+        display: none;
+    }
+
+    .account-icon-small {
+        font-size: 19px;
+    }
+
+}
+
+
+/* =====================================================
+   SEHR KLEINE SMARTPHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .theme-toggle {
+        width: 39px;
+        height: 39px;
+
+        font-size: 17px;
+    }
+
+    .account-link {
+        width: 39px;
+        height: 39px;
+
+        min-height: 39px;
+    }
+
+    .account-icon-small {
+        font-size: 18px;
+    }
+
+}

@@ -1,0 +1,1626 @@
+/* =====================================================
+   WEBSHOP PROTOTYP
+   ABHOLSEITE / STANDORTFINDER V2
+===================================================== */
+
+
+/* =========================
+   FARBEN UND VARIABLEN
+========================= */
+
+:root {
+    --green: #1d5a3a;
+    --green-dark: #123d2b;
+    --green-light: #edf6e8;
+
+    --text: #173e2d;
+    --text-muted: #617067;
+
+    --white: #ffffff;
+    --background: #f5f7f3;
+
+    --content-width: 1180px;
+
+    --shadow:
+        0 10px 30px rgba(28, 55, 38, 0.10);
+
+    --shadow-hover:
+        0 16px 34px rgba(28, 55, 38, 0.14);
+}
+
+
+/* =========================
+   GRUNDEINSTELLUNGEN
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--text);
+    background-color: var(--background);
+
+    line-height: 1.55;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    width: 100%;
+
+    background-color: var(--white);
+
+    border-bottom:
+        1px solid #e5eae3;
+}
+
+.header-inner {
+    width: calc(100% - 40px);
+    max-width: var(--content-width);
+
+    min-height: 88px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 28px;
+}
+
+
+/* =========================
+   LOGO UND FIRMA
+========================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    text-decoration: none;
+}
+
+.logo {
+    width: 72px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    color: #527044;
+
+    border:
+        2px dashed #8bab79;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.company-name {
+    color: var(--green-dark);
+
+    font-size: 20px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.slogan {
+    margin-top: 2px;
+
+    color: #71806d;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 24px;
+}
+
+.navigation a {
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        color 0.2s ease;
+}
+
+.navigation a:hover {
+    color: var(--green);
+}
+
+
+/* =========================
+   EINSTIEGSBEREICH
+========================= */
+
+.intro {
+    width: calc(100% - 40px);
+    max-width: var(--content-width);
+
+    margin:
+        24px
+        auto
+        0;
+}
+
+
+/* =========================
+   ZURÜCK
+========================= */
+
+.back-link {
+    color: var(--green);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition:
+        color 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--green-dark);
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro-center {
+    max-width: 720px;
+
+    margin:
+        20px
+        auto
+        34px;
+
+    text-align: center;
+}
+
+.intro-icon {
+    width: 66px;
+    height: 66px;
+
+    margin:
+        0
+        auto
+        13px;
+
+    display: grid;
+    place-items: center;
+
+    background-color:
+        var(--green-light);
+
+    border-radius: 50%;
+
+    font-size: 30px;
+}
+
+.eyebrow {
+    color: var(--green);
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.intro h1 {
+    margin:
+        6px
+        0
+        10px;
+
+    color: var(--green-dark);
+
+    font-size:
+        clamp(32px, 4vw, 46px);
+
+    line-height: 1.12;
+
+    letter-spacing: -0.5px;
+}
+
+.intro-center > p:last-child {
+    color: var(--text-muted);
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   STANDORTFINDER
+========================= */
+
+.finder {
+    width: calc(100% - 40px);
+    max-width: var(--content-width);
+
+    margin:
+        0
+        auto
+        58px;
+}
+
+
+/* =========================
+   SUCHE UND FILTER
+========================= */
+
+.finder-tools {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        250px;
+
+    gap: 14px;
+
+    margin-bottom: 17px;
+}
+
+
+/* =========================
+   PLZ-SUCHE
+========================= */
+
+.postal-search {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+    gap: 10px;
+}
+
+
+/* =========================
+   SUCHFELD + TAGESFILTER
+========================= */
+
+.search-field,
+.day-filter {
+    min-height: 54px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        0
+        15px;
+
+    background-color: var(--white);
+
+    border:
+        1px solid #dfe6dd;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 16px
+        rgba(28, 55, 38, 0.05);
+}
+
+.search-field:focus-within,
+.day-filter:focus-within {
+    border-color:
+        rgba(29, 90, 58, 0.45);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(29, 90, 58, 0.08);
+}
+
+
+/* =========================
+   INPUT UND SELECT
+========================= */
+
+.search-field input,
+.day-filter select {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background-color: transparent;
+
+    color: var(--text);
+
+    font: inherit;
+}
+
+
+/* =========================
+   SUCHE LÖSCHEN
+========================= */
+
+.search-field button {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    background-color: transparent;
+
+    color: #71806d;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   NÄCHSTEN STANDORT FINDEN
+========================= */
+
+.nearest-button {
+    min-height: 54px;
+
+    padding:
+        0
+        20px;
+
+    border: none;
+    border-radius: 14px;
+
+    background-color: var(--green);
+
+    color: var(--white);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 16px
+        rgba(28, 55, 38, 0.10);
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.nearest-button:hover {
+    background-color:
+        var(--green-dark);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(28, 55, 38, 0.15);
+}
+
+.nearest-button:disabled {
+    cursor: wait;
+
+    opacity: 0.65;
+
+    transform: none;
+}
+
+
+/* =========================
+   LISTE UND KARTE
+========================= */
+
+.finder-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(380px, 0.9fr);
+
+    gap: 20px;
+
+    align-items: start;
+}
+
+
+/* =========================
+   PANELS
+========================= */
+
+.results-panel,
+.map-panel {
+    overflow: hidden;
+
+    background-color: var(--white);
+
+    border:
+        1px solid #e0e6de;
+
+    border-radius: 18px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+/* =========================
+   ERGEBNISKOPF
+========================= */
+
+.results-head {
+    min-height: 58px;
+
+    padding:
+        0
+        18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    border-bottom:
+        1px solid #e8ece6;
+}
+
+.results-head strong {
+    color: var(--green-dark);
+
+    font-size: 15px;
+}
+
+.results-head span {
+    color: var(--text-muted);
+
+    font-size: 13px;
+}
+
+.results-head button {
+    border: none;
+
+    background-color: transparent;
+
+    color: var(--green);
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   STANDORTLISTE
+========================= */
+
+.location-list {
+    max-height: 585px;
+
+    overflow-y: auto;
+
+    padding: 10px;
+}
+
+
+/* Scrollbar */
+
+.location-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.location-list::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.location-list::-webkit-scrollbar-thumb {
+    background-color: #cdd8ca;
+
+    border-radius: 999px;
+}
+
+
+/* =========================
+   EINZELNER STANDORT
+========================= */
+
+.location-item {
+    display: grid;
+
+    grid-template-columns:
+        42px
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        15px
+        12px;
+
+    border-bottom:
+        1px solid #edf0eb;
+
+    transition:
+        background-color 0.2s ease;
+}
+
+.location-item:last-child {
+    border-bottom: none;
+}
+
+.location-item:hover,
+.location-item.active {
+    background-color:
+        #f2f8ee;
+
+    border-radius: 12px;
+}
+
+
+/* =========================
+   STANDORT PIN
+========================= */
+
+.pin {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    background-color:
+        var(--green-light);
+
+    border-radius: 50%;
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   STANDORT INFORMATIONEN
+========================= */
+
+.location-copy {
+    min-width: 0;
+}
+
+.location-copy h2 {
+    color: var(--green-dark);
+
+    font-size: 17px;
+
+    line-height: 1.3;
+}
+
+.location-copy p {
+    margin-top: 2px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   ABHOLTAG + ZEIT
+========================= */
+
+.meta {
+    margin-top: 6px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap:
+        5px
+        12px;
+
+    color: #456451;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   STANDORT AUSWÄHLEN
+========================= */
+
+.choose-button {
+    min-height: 41px;
+
+    padding:
+        10px
+        14px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background-color:
+        var(--green);
+
+    color: var(--white);
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.choose-button:hover {
+    background-color:
+        var(--green-dark);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================
+   KARTE
+========================= */
+
+#map {
+    width: 100%;
+    height: 585px;
+}
+
+.map-note {
+    padding:
+        8px
+        12px;
+
+    background-color:
+        #f7f8f5;
+
+    color:
+        var(--text-muted);
+
+    font-size: 11px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   KEIN STANDORT GEFUNDEN
+========================= */
+
+.empty-state {
+    padding:
+        70px
+        25px;
+
+    text-align: center;
+}
+
+.empty-state div {
+    font-size: 36px;
+}
+
+.empty-state h2 {
+    margin:
+        8px
+        0;
+
+    color: var(--green-dark);
+
+    font-size: 21px;
+}
+
+.empty-state p {
+    max-width: 370px;
+
+    margin: 0 auto;
+
+    color:
+        var(--text-muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   HINWEIS
+========================= */
+
+.note {
+    width: calc(100% - 40px);
+    max-width: 760px;
+
+    margin:
+        -20px
+        auto
+        58px;
+
+    padding:
+        22px
+        27px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 17px;
+
+    background-color:
+        var(--green-light);
+
+    border-radius: 16px;
+}
+
+.note > div {
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    background-color:
+        var(--white);
+
+    border-radius: 50%;
+
+    font-size: 25px;
+}
+
+.note p {
+    color:
+        var(--text-muted);
+
+    font-size: 14px;
+}
+
+.note strong {
+    color:
+        var(--green-dark);
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    width: 100%;
+
+    background-color:
+        var(--green-dark);
+
+    color:
+        var(--white);
+}
+
+.footer-inner {
+    width: calc(100% - 40px);
+    max-width: var(--content-width);
+
+    min-height: 94px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 28px;
+}
+
+.footer-inner > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-inner strong {
+    font-size: 18px;
+}
+
+.footer-inner span {
+    font-size: 12px;
+
+    opacity: 0.72;
+}
+
+.footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    gap: 16px;
+}
+
+.footer a {
+    color:
+        var(--white);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    opacity: 0.84;
+}
+
+.footer a:hover {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    /* Header */
+
+    .header-inner {
+        min-height: auto;
+
+        padding:
+            16px
+            0;
+
+        flex-direction: column;
+
+        gap: 16px;
+
+        text-align: center;
+    }
+
+    .navigation {
+        justify-content: center;
+
+        gap:
+            10px
+            18px;
+    }
+
+
+    /* Intro */
+
+    .intro {
+        margin-top: 18px;
+    }
+
+    .intro-center {
+        margin:
+            15px
+            auto
+            28px;
+    }
+
+    .intro h1 {
+        font-size: 36px;
+    }
+
+
+    /* Suchbereich */
+
+    .finder-tools {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+    .postal-search {
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto;
+    }
+
+
+    /* Liste + Karte untereinander */
+
+    .finder-layout {
+        grid-template-columns:
+            1fr;
+
+        gap: 16px;
+    }
+
+    .location-list {
+        max-height: 520px;
+    }
+
+    #map {
+        height: 400px;
+    }
+
+
+    /* Footer */
+
+    .footer-inner {
+        min-height: auto;
+
+        padding:
+            25px
+            0;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .footer nav {
+        justify-content: center;
+    }
+}
+
+
+/* =====================================================
+   SMARTPHONE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    /* =========================
+       BREITE
+    ========================= */
+
+    .header-inner,
+    .footer-inner,
+    .intro,
+    .finder,
+    .note {
+        width:
+            calc(100% - 28px);
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .header-inner {
+        padding:
+            14px
+            0;
+
+        gap:
+            13px;
+    }
+
+    .brand {
+        flex-direction: row;
+
+        justify-content:
+            center;
+
+        gap:
+            10px;
+
+        text-align:
+            left;
+    }
+
+    .logo {
+        width: 58px;
+        height: 44px;
+
+        font-size: 10px;
+    }
+
+    .company-name {
+        font-size: 17px;
+    }
+
+    .slogan {
+        font-size: 11px;
+    }
+
+
+    /* Navigation */
+
+    .navigation {
+        width: 100%;
+
+        justify-content:
+            center;
+
+        gap:
+            7px
+            14px;
+    }
+
+    .navigation a {
+        font-size:
+            12px;
+    }
+
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+        margin-top:
+            15px;
+    }
+
+    .back-link {
+        font-size:
+            13px;
+    }
+
+    .intro-center {
+        margin:
+            15px
+            auto
+            25px;
+    }
+
+    .intro-icon {
+        width: 56px;
+        height: 56px;
+
+        margin-bottom:
+            10px;
+
+        font-size:
+            25px;
+    }
+
+    .eyebrow {
+        font-size:
+            10px;
+
+        letter-spacing:
+            1.3px;
+    }
+
+    .intro h1 {
+        margin-top:
+            5px;
+
+        font-size:
+            29px;
+
+        line-height:
+            1.12;
+    }
+
+    .intro-center > p:last-child {
+        max-width:
+            340px;
+
+        margin:
+            0
+            auto;
+
+        font-size:
+            14px;
+
+        line-height:
+            1.55;
+    }
+
+
+    /* =========================
+       FINDER
+    ========================= */
+
+    .finder {
+        margin-bottom:
+            45px;
+    }
+
+    .finder-tools {
+        gap:
+            9px;
+
+        margin-bottom:
+            12px;
+    }
+
+
+    /* =========================
+       PLZ-SUCHE MOBIL
+    ========================= */
+
+    .postal-search {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            8px;
+    }
+
+    .search-field,
+    .day-filter {
+        min-height:
+            52px;
+
+        padding:
+            0
+            13px;
+
+        border-radius:
+            12px;
+    }
+
+    .search-field input,
+    .day-filter select {
+        font-size:
+            15px;
+    }
+
+    .search-field button {
+        min-width:
+            38px;
+
+        min-height:
+            38px;
+
+        font-size:
+            23px;
+    }
+
+
+    /* =========================
+       NÄCHSTER STANDORT
+    ========================= */
+
+    .nearest-button {
+        width:
+            100%;
+
+        min-height:
+            50px;
+
+        padding:
+            12px
+            15px;
+
+        border-radius:
+            12px;
+
+        white-space:
+            normal;
+
+        font-size:
+            14px;
+    }
+
+
+    /* =========================
+       PANELS
+    ========================= */
+
+    .finder-layout {
+        gap:
+            14px;
+    }
+
+    .results-panel,
+    .map-panel {
+        border-radius:
+            15px;
+    }
+
+
+    /* =========================
+       ERGEBNISKOPF
+    ========================= */
+
+    .results-head {
+        height:
+            auto;
+
+        min-height:
+            54px;
+
+        padding:
+            10px
+            13px;
+
+        gap:
+            8px;
+    }
+
+    .results-head strong {
+        font-size:
+            14px;
+    }
+
+    .results-head span {
+        font-size:
+            12px;
+    }
+
+    .results-head button {
+        font-size:
+            12px;
+    }
+
+
+    /* =========================
+       STANDORTLISTE
+    ========================= */
+
+    .location-list {
+        max-height:
+            none;
+
+        padding:
+            7px;
+    }
+
+
+    /* Standort als Karte */
+
+    .location-item {
+        margin-bottom:
+            7px;
+
+        padding:
+            13px
+            11px;
+
+        grid-template-columns:
+            40px
+            minmax(0, 1fr);
+
+        gap:
+            10px
+            11px;
+
+        background-color:
+            var(--white);
+
+        border:
+            1px
+            solid #edf0eb;
+
+        border-radius:
+            12px;
+    }
+
+    .location-item:last-child {
+        margin-bottom:
+            0;
+
+        border-bottom:
+            1px
+            solid #edf0eb;
+    }
+
+    .location-item:hover,
+    .location-item.active {
+        background-color:
+            #f2f8ee;
+    }
+
+
+    /* =========================
+       PIN
+    ========================= */
+
+    .pin {
+        width:
+            40px;
+
+        height:
+            40px;
+
+        font-size:
+            19px;
+    }
+
+
+    /* =========================
+       STANDORTTEXT
+    ========================= */
+
+    .location-copy {
+        min-width:
+            0;
+    }
+
+    .location-copy h2 {
+        font-size:
+            16px;
+
+        line-height:
+            1.25;
+    }
+
+    .location-copy p {
+        margin-top:
+            2px;
+
+        font-size:
+            12px;
+
+        line-height:
+            1.4;
+    }
+
+
+    /* =========================
+       ABHOLTAG + ZEIT
+    ========================= */
+
+    .meta {
+        margin-top:
+            7px;
+
+        flex-direction:
+            column;
+
+        gap:
+            3px;
+
+        font-size:
+            12px;
+    }
+
+
+    /* =========================
+       AUSWÄHLEN
+    ========================= */
+
+    .choose-button {
+        grid-column:
+            1 / -1;
+
+        width:
+            100%;
+
+        min-height:
+            46px;
+
+        margin-top:
+            3px;
+
+        padding:
+            12px
+            16px;
+
+        border-radius:
+            12px;
+
+        font-size:
+            14px;
+    }
+
+
+    /* =========================
+       KARTE
+    ========================= */
+
+    #map {
+        height:
+            330px;
+
+        touch-action:
+            pan-x pan-y;
+    }
+
+    .map-note {
+        padding:
+            7px
+            10px;
+
+        font-size:
+            10px;
+    }
+
+
+    /* =========================
+       HINWEIS
+    ========================= */
+
+    .note {
+        margin:
+            -15px
+            auto
+            45px;
+
+        padding:
+            20px;
+
+        flex-direction:
+            column;
+
+        gap:
+            10px;
+
+        text-align:
+            center;
+
+        border-radius:
+            14px;
+    }
+
+    .note > div {
+        width:
+            48px;
+
+        height:
+            48px;
+
+        font-size:
+            23px;
+    }
+
+    .note strong {
+        font-size:
+            15px;
+    }
+
+    .note p {
+        font-size:
+            13px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer-inner {
+        padding:
+            25px
+            0;
+
+        gap:
+            18px;
+    }
+
+    .footer nav {
+        justify-content:
+            center;
+
+        gap:
+            9px
+            14px;
+    }
+
+    .footer a {
+        font-size:
+            11px;
+    }
+}
+
+
+/* =====================================================
+   SEHR KLEINE SMARTPHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .header-inner,
+    .footer-inner,
+    .intro,
+    .finder,
+    .note {
+        width:
+            calc(100% - 20px);
+    }
+
+    .logo {
+        width:
+            52px;
+
+        height:
+            40px;
+    }
+
+    .company-name {
+        font-size:
+            16px;
+    }
+
+    .navigation {
+        gap:
+            6px
+            11px;
+    }
+
+    .navigation a {
+        font-size:
+            11px;
+    }
+
+    .intro h1 {
+        font-size:
+            26px;
+    }
+
+    .intro-center > p:last-child {
+        font-size:
+            13px;
+    }
+
+    .search-field input,
+    .day-filter select {
+        font-size:
+            14px;
+    }
+
+    .nearest-button {
+        font-size:
+            13px;
+    }
+
+    .location-copy h2 {
+        font-size:
+            15px;
+    }
+
+    .choose-button {
+        font-size:
+            13px;
+    }
+
+    #map {
+        height:
+            290px;
+    }
+}

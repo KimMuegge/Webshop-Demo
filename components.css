@@ -1,0 +1,1120 @@
+/* =====================================================
+   WEBSHOP
+   ZENTRALER HEADER UND FOOTER V3
+===================================================== */
+
+
+/* =====================================================
+   GEMEINSAME VARIABLEN
+===================================================== */
+
+:root {
+    --shared-green-dark: #123d2b;
+    --shared-green-main: #1d5a3a;
+    --shared-green-light: #edf6e8;
+
+    --shared-orange-main: #e96816;
+
+    --shared-white: #ffffff;
+    --shared-border: #e1e7df;
+
+    --shared-content-width: 1250px;
+}
+
+
+/* =====================================================
+   ZENTRALER HEADER
+===================================================== */
+
+.site-header {
+    position: relative;
+
+    z-index: 1000;
+
+    width: 100%;
+
+    background-color:
+        var(--shared-white);
+
+    border-bottom:
+        1px solid var(--shared-border);
+}
+
+
+/* =====================================================
+   HEADER-INNENBEREICH
+
+   Die maximale Breite sorgt für die ruhige Optik
+   des bisherigen Startseiten-Headers.
+===================================================== */
+
+.site-header-inner {
+    width:
+        calc(100% - 48px);
+
+    max-width:
+        var(--shared-content-width);
+
+    min-height: 98px;
+
+    margin:
+        0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 35px;
+}
+
+
+/* =====================================================
+   FIRMA / LOGO
+===================================================== */
+
+.site-brand {
+    min-width: max-content;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+.site-logo-box {
+    width: 84px;
+    height: 58px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    color: #527044;
+
+    border:
+        2px dashed #8bab79;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.site-logo {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+.logo-placeholder {
+    display: inline-block;
+}
+
+
+.site-brand-text {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.site-company-name {
+    color:
+        var(--shared-green-dark);
+
+    font-size: 21px;
+
+    font-weight: 900;
+
+    line-height: 1.2;
+}
+
+
+.site-slogan {
+    margin-top: 3px;
+
+    color: #71806d;
+
+    font-size: 12px;
+
+    line-height: 1.3;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.site-navigation {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    flex-wrap: nowrap;
+
+    gap: 23px;
+}
+
+
+.site-navigation > a {
+    position: relative;
+
+    color: #263b2e;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 750;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.site-navigation > a:hover {
+    color:
+        var(--shared-orange-main);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =====================================================
+   AKTIVER NAVIGATIONSPUNKT
+===================================================== */
+
+.site-navigation > a.active-link {
+    color:
+        var(--shared-green-main);
+}
+
+
+.site-navigation > a.active-link::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    bottom: -11px;
+    left: 0;
+
+    height: 3px;
+
+    background-color:
+        var(--shared-orange-main);
+
+    border-radius: 999px;
+}
+
+
+/* =====================================================
+   WARENKORB
+===================================================== */
+
+.site-navigation .site-cart-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.site-cart-icon {
+    font-size: 14px;
+}
+
+
+.site-cart-count {
+    min-width: 22px;
+    height: 22px;
+
+    padding:
+        0
+        6px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #ffffff;
+
+    background-color:
+        var(--shared-orange-main);
+
+    border-radius: 999px;
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   KUNDENKONTO
+===================================================== */
+
+.site-navigation .site-account-link {
+    min-height: 48px;
+
+    padding:
+        10px
+        19px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color:
+        var(--shared-green-dark);
+
+    background-color:
+        var(--shared-green-light);
+
+    border:
+        1px solid #cfe0cb;
+
+    border-radius: 999px;
+
+    font-weight: 900;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.site-navigation .site-account-link:hover {
+    color: #ffffff;
+
+    background-color:
+        var(--shared-green-main);
+
+    border-color:
+        var(--shared-green-main);
+}
+
+
+.site-navigation .site-account-link.active-link::after {
+    display: none;
+}
+
+
+.site-account-icon {
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   DARK-MODE-SCHALTER
+===================================================== */
+
+.site-theme-toggle {
+    width: 50px;
+    height: 50px;
+
+    padding: 0;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    color:
+        var(--shared-green-dark);
+
+    background-color:
+        var(--shared-green-light);
+
+    border:
+        1px solid #cfe0cb;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.site-theme-toggle:hover {
+    background-color:
+        #dfeeda;
+
+    border-color:
+        #bcd3b7;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =====================================================
+   FEHLERMELDUNG BEIM LADEN
+===================================================== */
+
+.component-error {
+    width:
+        calc(100% - 40px);
+
+    max-width:
+        var(--shared-content-width);
+
+    margin:
+        15px auto;
+
+    padding:
+        13px
+        16px;
+
+    color: #7a342d;
+
+    background-color: #fbecea;
+
+    border:
+        1px solid #ebc5c0;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+html[data-theme="dark"] .site-header {
+    background-color: #121e17;
+
+    border-bottom-color: #2d3e34;
+}
+
+
+html[data-theme="dark"] .site-company-name {
+    color: #eef5ef;
+}
+
+
+html[data-theme="dark"] .site-slogan {
+    color: #aebfb4;
+}
+
+
+html[data-theme="dark"] .site-navigation > a {
+    color: #d6e1d9;
+}
+
+
+html[data-theme="dark"] .site-navigation > a:hover {
+    color: #f29452;
+}
+
+
+html[data-theme="dark"] .site-navigation > a.active-link {
+    color: #93cba3;
+}
+
+
+html[data-theme="dark"] .site-logo-box {
+    color: #b7c9bd;
+
+    border-color: #58725e;
+}
+
+
+html[data-theme="dark"]
+.site-navigation
+.site-account-link {
+    color: #eef5ef;
+
+    background-color: #20362a;
+
+    border-color: #3c5846;
+}
+
+
+html[data-theme="dark"]
+.site-navigation
+.site-account-link:hover {
+    background-color:
+        var(--shared-green-main);
+
+    border-color:
+        var(--shared-green-main);
+}
+
+
+html[data-theme="dark"] .site-theme-toggle {
+    color: #eef5ef;
+
+    background-color: #20362a;
+
+    border-color: #3c5846;
+}
+
+
+html[data-theme="dark"] .site-theme-toggle:hover {
+    background-color: #294535;
+}
+
+
+/* =====================================================
+   KLEINERE DESKTOPS UND TABLETS
+===================================================== */
+
+@media (max-width: 1180px) {
+
+    .site-header-inner {
+        width:
+            calc(100% - 32px);
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 16px;
+
+        padding:
+            17px
+            0;
+    }
+
+
+    .site-brand {
+        align-self: center;
+    }
+
+
+    .site-navigation {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap:
+            12px
+            20px;
+    }
+
+
+    .site-navigation > a.active-link::after {
+        bottom: -6px;
+    }
+}
+
+
+/* =====================================================
+   SMARTPHONE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .site-header-inner {
+        width:
+            calc(100% - 24px);
+
+        padding:
+            15px
+            0;
+    }
+
+
+    .site-logo-box {
+        width: 65px;
+        height: 48px;
+    }
+
+
+    .site-company-name {
+        font-size: 18px;
+    }
+
+
+    .site-slogan {
+        font-size: 11px;
+    }
+
+
+    .site-navigation {
+        gap:
+            10px
+            14px;
+    }
+
+
+    .site-navigation > a {
+        font-size: 12px;
+    }
+
+
+    .site-navigation .site-account-link {
+        min-height: 42px;
+
+        padding:
+            8px
+            14px;
+    }
+
+
+    .site-theme-toggle {
+        width: 43px;
+        height: 43px;
+    }
+}
+
+
+/* =====================================================
+   SEHR KLEINE SMARTPHONES
+===================================================== */
+
+@media (max-width: 430px) {
+
+    .site-brand {
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+
+
+    .site-navigation {
+        gap:
+            9px
+            12px;
+    }
+
+
+    .site-cart-text,
+    .site-account-text {
+        display: none;
+    }
+
+
+    .site-navigation .site-cart-link,
+    .site-navigation .site-account-link {
+        min-width: 43px;
+        height: 43px;
+
+        padding:
+            0
+            9px;
+
+        justify-content: center;
+    }
+}
+/* =====================================================
+   ZENTRALER FOOTER V2
+===================================================== */
+
+.site-footer {
+    width: 100%;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #123d2b 0%,
+            #174b34 100%
+        );
+}
+
+
+/* =====================================================
+   FOOTER INNENBEREICH
+===================================================== */
+
+.site-footer-inner {
+    width:
+        calc(100% - 48px);
+
+    max-width:
+        var(--shared-content-width);
+
+    margin:
+        0 auto;
+
+    padding:
+        55px
+        0
+        25px;
+}
+
+
+/* =====================================================
+   OBERER FOOTERBEREICH
+===================================================== */
+
+.site-footer-main {
+    display: grid;
+
+    grid-template-columns:
+        minmax(260px, 1.6fr)
+        repeat(3, minmax(130px, 0.7fr));
+
+    gap:
+        45px
+        55px;
+
+    align-items: start;
+}
+
+
+/* =====================================================
+   FIRMA / BRAND
+===================================================== */
+
+.site-footer-brand {
+    max-width: 320px;
+}
+
+
+.site-footer-brand-link {
+    display: inline-flex;
+
+    flex-direction: column;
+
+    color: #ffffff;
+
+    text-decoration: none;
+}
+
+
+.site-footer-brand-link strong {
+    font-size: 22px;
+
+    font-weight: 900;
+
+    line-height: 1.2;
+}
+
+
+.site-footer-brand-link span {
+    margin-top: 4px;
+
+    color: #bdd4c5;
+
+    font-size: 12px;
+}
+
+
+.site-footer-brand > p {
+    max-width: 280px;
+
+    margin-top: 18px;
+
+    color: #cfddd3;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+}
+
+
+/* =====================================================
+   FOOTER SPALTEN
+===================================================== */
+
+.site-footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+}
+
+
+.site-footer-heading {
+    margin-bottom: 6px;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   FOOTER LINKS
+===================================================== */
+
+.site-footer-column a {
+    position: relative;
+
+    color: #cfddd3;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.site-footer-column a:hover {
+    color: #ffffff;
+
+    transform:
+        translateX(3px);
+}
+
+
+.site-footer-column a::before {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: -12px;
+
+    width: 5px;
+    height: 5px;
+
+    opacity: 0;
+
+    background-color:
+        var(--shared-orange-main);
+
+    border-radius: 50%;
+
+    transform:
+        translateY(-50%);
+
+    transition:
+        opacity 0.2s ease;
+}
+
+
+.site-footer-column a:hover::before {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   TRENNLINIE
+===================================================== */
+
+.site-footer-divider {
+    width: 100%;
+    height: 1px;
+
+    margin:
+        42px
+        0
+        22px;
+
+    background-color:
+        rgba(255, 255, 255, 0.14);
+}
+
+
+/* =====================================================
+   UNTERER FOOTERBEREICH
+===================================================== */
+
+.site-footer-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+
+.site-footer-bottom p {
+    margin: 0;
+
+    color: #afc5b6;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+.site-footer-copyright {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 4px;
+}
+
+
+.site-footer-message {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+.site-footer-message span {
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   DARK MODE
+
+   Der Footer ist bereits dunkel, bekommt im Dark Mode
+   lediglich eine etwas dunklere Abstufung.
+===================================================== */
+
+html[data-theme="dark"] .site-footer {
+    background:
+        linear-gradient(
+            135deg,
+            #0b1510 0%,
+            #10261a 100%
+        );
+}
+
+
+html[data-theme="dark"]
+.site-footer-brand-link span,
+html[data-theme="dark"]
+.site-footer-brand > p,
+html[data-theme="dark"]
+.site-footer-column a {
+    color: #b7cabe;
+}
+
+
+html[data-theme="dark"]
+.site-footer-divider {
+    background-color:
+        rgba(255, 255, 255, 0.11);
+}
+
+
+html[data-theme="dark"]
+.site-footer-bottom p {
+    color: #91a99a;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .site-footer-inner {
+        width:
+            calc(100% - 40px);
+
+        padding-top:
+            45px;
+    }
+
+
+    .site-footer-main {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        gap:
+            35px
+            50px;
+    }
+
+
+    .site-footer-brand {
+        max-width: none;
+    }
+
+}
+
+
+/* =====================================================
+   SMARTPHONE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .site-footer-inner {
+        width:
+            calc(100% - 32px);
+
+        padding:
+            38px
+            0
+            22px;
+    }
+
+
+    .site-footer-main {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        gap:
+            32px
+            25px;
+    }
+
+
+    .site-footer-brand {
+        grid-column:
+            1 / -1;
+
+        max-width: 100%;
+
+        text-align: center;
+    }
+
+
+    .site-footer-brand-link {
+        align-items: center;
+    }
+
+
+    .site-footer-brand > p {
+        max-width: 420px;
+
+        margin:
+            14px
+            auto
+            0;
+    }
+
+
+    .site-footer-divider {
+        margin:
+            32px
+            0
+            20px;
+    }
+
+
+    .site-footer-bottom {
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+
+
+    .site-footer-copyright,
+    .site-footer-message {
+        justify-content: center;
+    }
+
+}
+
+
+/* =====================================================
+   SEHR KLEINE SMARTPHONES
+===================================================== */
+
+@media (max-width: 430px) {
+
+    .site-footer-inner {
+        width:
+            calc(100% - 24px);
+    }
+
+
+    .site-footer-main {
+        grid-template-columns:
+            1fr;
+
+        gap: 27px;
+
+        text-align: center;
+    }
+
+
+    .site-footer-brand {
+        grid-column: auto;
+    }
+
+
+    .site-footer-column {
+        align-items: center;
+    }
+
+
+    .site-footer-heading {
+        margin-bottom: 3px;
+    }
+
+
+    .site-footer-column a:hover {
+        transform: none;
+    }
+
+
+    .site-footer-column a::before {
+        display: none;
+    }
+
+}

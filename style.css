@@ -1,0 +1,872 @@
+/* =====================================================
+   WEBSHOP PROTOTYP
+   STARTSEITE V1
+===================================================== */
+
+
+/* =========================
+   FARBEN UND VARIABLEN
+========================= */
+
+:root {
+    --green-dark: #123d2b;
+    --green-main: #1d5a3a;
+    --green-light: #edf6e8;
+
+    --orange-main: #e96816;
+    --orange-light: #fff3e8;
+
+    --text-main: #173e2d;
+    --text-secondary: #5a6b60;
+
+    --white: #ffffff;
+    --page-background: #f7f8f5;
+
+    --content-width: 1120px;
+
+    --shadow-small:
+        0 8px 25px rgba(28, 55, 38, 0.08);
+
+    --shadow-medium:
+        0 16px 38px rgba(28, 55, 38, 0.13);
+}
+
+
+/* =========================
+   GRUNDEINSTELLUNGEN
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: var(--text-main);
+    background-color: var(--page-background);
+
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    width: 100%;
+    min-height: 90px;
+
+    padding:
+        15px
+        max(24px, calc((100% - var(--content-width)) / 2));
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    background-color: var(--white);
+
+    border-bottom: 1px solid #e7ebe5;
+}
+
+
+/* =========================
+   LOGO UND FIRMA
+========================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 76px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #527044;
+
+    border: 2px dashed #8bab79;
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-name {
+    color: var(--green-dark);
+
+    font-size: 20px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.slogan {
+    margin-top: 3px;
+
+    color: #71806d;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navigation a {
+    color: #263b2e;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.navigation a:hover {
+    color: var(--orange-main);
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    width: 100%;
+
+    min-height: 360px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        45px
+        24px;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.28),
+            rgba(255, 255, 255, 0.45)
+        ),
+        url("images/hero.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* =========================
+   HERO INHALT
+   PASST ZU .hero-overlay IN HTML
+========================= */
+
+.hero-overlay {
+    width: 100%;
+    max-width: var(--content-width);
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* =========================
+   HERO ÜBERSCHRIFT
+========================= */
+
+.hero h1 {
+    width: 100%;
+    max-width: 750px;
+
+    margin:
+        0
+        auto
+        16px;
+
+    color: var(--green-dark);
+
+    font-size:
+        clamp(38px, 4vw, 55px);
+
+    font-weight: 800;
+
+    line-height: 1.05;
+    letter-spacing: -1px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   HERO CLAIM
+========================= */
+
+.hero-introduction {
+    width: 100%;
+    max-width: 650px;
+
+    margin:
+        0
+        auto;
+
+    color: #2d593d;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 27px;
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.45;
+    letter-spacing: 0.3px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   SHOP-AUSWAHL
+========================= */
+
+.shop-selection {
+    width: 100%;
+
+    padding:
+        50px
+        24px
+        60px;
+
+    background-color: var(--page-background);
+}
+
+
+/* =========================
+   SHOP ÜBERSCHRIFT
+========================= */
+
+.section-heading {
+    width: 100%;
+    max-width: 980px;
+
+    margin:
+        0
+        auto
+        30px;
+
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin-bottom: 7px;
+
+    color: var(--green-dark);
+
+    font-size: 31px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.section-heading p {
+    color: var(--text-secondary);
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   AUSWAHLKARTEN
+========================= */
+
+.shopping-options {
+    width: 100%;
+    max-width: 980px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 26px;
+}
+
+
+/* =========================
+   KARTEN
+========================= */
+
+.shopping-card {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border:
+        1px
+        solid
+        rgba(32, 70, 45, 0.09);
+
+    border-radius: 22px;
+
+    box-shadow: var(--shadow-small);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.shopping-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow-medium);
+}
+
+.pickup-card {
+    background-color: var(--green-light);
+}
+
+.shipping-card {
+    background-color: var(--orange-light);
+}
+
+
+/* =========================
+   KARTENBILDER
+========================= */
+
+.card-image {
+    width: 100%;
+    height: 210px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* =========================
+   KARTENINHALT
+========================= */
+
+.card-content {
+    width: 100%;
+    min-height: 315px;
+
+    padding:
+        0
+        34px
+        30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =========================
+   KARTENSYMBOLE
+========================= */
+
+.icon {
+    position: relative;
+    z-index: 2;
+
+    width: 66px;
+    height: 66px;
+
+    margin:
+        -33px
+        auto
+        17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background-color: var(--white);
+
+    border: 5px solid var(--white);
+    border-radius: 50%;
+
+    box-shadow:
+        0 8px 20px
+        rgba(28, 55, 38, 0.12);
+
+    font-size: 29px;
+}
+
+
+/* =========================
+   KARTENTEXTE
+========================= */
+
+.shopping-card h2 {
+    margin-bottom: 13px;
+
+    color: var(--green-dark);
+
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.shopping-card p {
+    width: 100%;
+    max-width: 390px;
+
+    margin:
+        0
+        auto
+        27px;
+
+    color: #4f6155;
+
+    font-size: 15px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button {
+    width: 100%;
+    max-width: 310px;
+
+    margin-top: auto;
+
+    padding:
+        14px
+        20px;
+
+    color: var(--white);
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    box-shadow:
+        0 7px 18px
+        rgba(28, 55, 38, 0.14);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.button-pickup {
+    background-color: var(--green-main);
+}
+
+.button-shipping {
+    background-color: var(--orange-main);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 11px 24px
+        rgba(28, 55, 38, 0.19);
+
+    opacity: 0.96;
+}
+
+
+/* =========================
+   LEBENSMITTELRETTUNG
+========================= */
+
+.mission {
+    width: 100%;
+
+    padding:
+        50px
+        24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 24px;
+
+    background-color: var(--white);
+
+    border-top: 1px solid #e9ede7;
+    border-bottom: 1px solid #e9ede7;
+}
+
+.mission-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background-color: var(--green-light);
+
+    border-radius: 50%;
+
+    font-size: 34px;
+}
+
+.mission-content {
+    width: 100%;
+    max-width: 670px;
+}
+
+.mission h2 {
+    margin-bottom: 8px;
+
+    color: var(--green-dark);
+
+    font-size: 29px;
+
+    line-height: 1.2;
+}
+
+.mission p {
+    color: var(--text-secondary);
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    width: 100%;
+
+    padding:
+        32px
+        max(
+            24px,
+            calc(
+                (100% - var(--content-width))
+                / 2
+            )
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 35px;
+
+    color: var(--white);
+
+    background-color: var(--green-dark);
+}
+
+.footer strong {
+    display: block;
+
+    font-size: 18px;
+}
+
+.footer span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 12px;
+
+    opacity: 0.75;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    gap:
+        10px
+        17px;
+}
+
+.footer-links a {
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    opacity: 0.82;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .header {
+        flex-direction: column;
+
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .navigation {
+        justify-content: center;
+        flex-wrap: wrap;
+
+        gap: 18px;
+    }
+
+    .hero {
+        min-height: 330px;
+
+        padding:
+            40px
+            20px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-introduction {
+        font-size: 23px;
+    }
+
+    .shop-selection {
+        padding:
+            45px
+            20px
+            55px;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .shopping-options {
+        max-width: 620px;
+
+        grid-template-columns: 1fr;
+    }
+
+    .card-image {
+        height: 230px;
+    }
+
+    .card-content {
+        min-height: 295px;
+    }
+
+    .mission {
+        text-align: left;
+    }
+
+    .footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+
+/* =====================================================
+   SMARTPHONE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding-left: 18px;
+        padding-right: 18px;
+
+        gap: 18px;
+    }
+
+    .brand {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .navigation {
+        gap: 14px;
+    }
+
+    .navigation a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 300px;
+
+        padding:
+            35px
+            18px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+
+        letter-spacing: -0.5px;
+    }
+
+    .hero-introduction {
+        max-width: 320px;
+
+        font-size: 20px;
+
+        line-height: 1.4;
+    }
+
+    .shop-selection {
+        padding:
+            40px
+            15px
+            50px;
+    }
+
+    .section-heading {
+        margin-bottom: 24px;
+    }
+
+    .section-heading h2 {
+        font-size: 26px;
+    }
+
+    .section-heading p {
+        font-size: 15px;
+    }
+
+    .shopping-options {
+        gap: 20px;
+    }
+
+    .card-image {
+        height: 185px;
+    }
+
+    .card-content {
+        min-height: 315px;
+
+        padding:
+            0
+            22px
+            27px;
+    }
+
+    .shopping-card h2 {
+        font-size: 23px;
+    }
+
+    .shopping-card p {
+        font-size: 15px;
+    }
+
+    .button {
+        padding:
+            13px
+            17px;
+
+        font-size: 14px;
+    }
+
+    .mission {
+        padding:
+            45px
+            22px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .mission h2 {
+        font-size: 26px;
+    }
+
+    .mission p {
+        font-size: 15px;
+    }
+
+    .footer {
+        padding:
+            30px
+            20px;
+    }
+}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Abholstandort wählen | [FIRMENNAME]
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+   <link
+    rel="stylesheet"
+    href="abholung.css"
+>
+
+<link
+    rel="stylesheet"
+    href="theme.css"
+>
+
+<link
+    rel="stylesheet"
+    href="components.css"
+>
+</head>
+
+
+<body>
+
+<!-- =================================================
+     ZENTRALER HEADER
+================================================= -->
+
+<div id="siteHeader"></div>
+
+
+    <main>
+
+        <!-- EINSTIEG -->
+        <section class="intro">
+
+            <a
+                class="back-link"
+                href="index.html"
+            >
+                ← Zurück zur Auswahl
+            </a>
+
+
+            <div class="intro-center">
+
+                <div
+                    class="intro-icon"
+                    aria-hidden="true"
+                >
+                    📍
+                </div>
+
+                <p class="eyebrow">
+                    VOR ORT ABHOLEN
+                </p>
+
+                <h1>
+                    Abholstandort auswählen
+                </h1>
+
+                <p>
+                    Suche nach Ort oder Postleitzahl
+                    und wähle den passenden Abholstandort.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- STANDORTFINDER -->
+        <section
+            class="finder"
+            aria-label="Standortfinder"
+        >
+
+            <div class="finder-tools">
+
+
+                <!-- SUCHE -->
+                <div class="postal-search">
+
+                    <label
+                        class="search-field"
+                        for="locationSearch"
+                    >
+
+                        <span aria-hidden="true">
+                            🔎
+                        </span>
+
+                        <input
+                            id="locationSearch"
+                            type="search"
+                            placeholder="Ort, Postleitzahl oder Standort suchen"
+                            autocomplete="postal-code"
+                        >
+
+                        <button
+                            id="clearSearch"
+                            type="button"
+                            aria-label="Suche löschen"
+                            title="Suche löschen"
+                        >
+                            ×
+                        </button>
+
+                    </label>
+
+
+                    <button
+                        id="findNearest"
+                        class="nearest-button"
+                        type="button"
+                    >
+                        Nächsten Standort finden
+                    </button>
+
+                </div>
+
+
+                <!-- ABHOLTAG -->
+                <label
+                    class="day-filter"
+                    for="dayFilter"
+                >
+
+                    <span aria-hidden="true">
+                        📅
+                    </span>
+
+                    <select id="dayFilter">
+
+                        <option value="">
+                            Alle Abholtage
+                        </option>
+
+                        <option value="Montag">
+                            Montag
+                        </option>
+
+                        <option value="Dienstag">
+                            Dienstag
+                        </option>
+
+                        <option value="Mittwoch">
+                            Mittwoch
+                        </option>
+
+                        <option value="Donnerstag">
+                            Donnerstag
+                        </option>
+
+                        <option value="Freitag">
+                            Freitag
+                        </option>
+
+                        <option value="Samstag">
+                            Samstag
+                        </option>
+
+                    </select>
+
+                </label>
+
+            </div>
+
+
+            <div class="finder-layout">
+
+                <!-- ERGEBNISSE -->
+                <section class="results-panel">
+
+                    <div class="results-head">
+
+                        <div>
+
+                            <strong id="resultCount">
+                                0 Standorte
+                            </strong>
+
+                            <span>
+                                gefunden
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            id="resetFilters"
+                            type="button"
+                        >
+                            Filter zurücksetzen
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="locationList"
+                        class="location-list"
+                        aria-live="polite"
+                    >
+                    </div>
+
+
+                    <div
+                        id="emptyState"
+                        class="empty-state"
+                        hidden
+                    >
+
+                        <div aria-hidden="true">
+                            🔍
+                        </div>
+
+                        <h2>
+                            Kein Standort gefunden
+                        </h2>
+
+                        <p>
+                            Für deine Suche wurde kein direkter
+                            Abholstandort gefunden.
+                            Nutze alternativ
+                            „Nächsten Standort finden“.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- KARTE -->
+                <aside class="map-panel">
+
+                    <div
+                        id="map"
+                        aria-label="Karte der Abholstandorte"
+                    >
+                    </div>
+
+                    <p class="map-note">
+                        Karte auf Basis von OpenStreetMap.
+                    </p>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+        <!-- HINWEIS -->
+        <section class="note">
+
+            <div aria-hidden="true">
+                🌱
+            </div>
+
+            <p>
+
+                <strong>
+                    Nach der Standortauswahl
+                </strong>
+
+                <br>
+
+                zeigen wir dir das verfügbare
+                Abholsortiment sowie den passenden
+                Abholtag und das Zeitfenster.
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =================================================
+     ZENTRALER FOOTER
+================================================= -->
+
+<div id="siteFooter"></div>
+
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+
+    <script src="abholung.js"></script>
+    <script src="theme.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/components.js"></script>
+
+</body>
+
+</html>

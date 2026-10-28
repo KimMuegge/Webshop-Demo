@@ -1,0 +1,208 @@
+<!-- =====================================================
+     WEBSHOP
+     ZENTRALER HEADER V4
+     Firmendaten kommen aus config.js
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="site-header-inner">
+
+
+        <!-- =================================================
+             LOGO UND FIRMENNAME
+        ================================================== -->
+
+        <a
+            class="site-brand"
+            href="index.html"
+            aria-label="Zur Startseite"
+        >
+
+            <!-- =============================================
+                 LOGO
+            ============================================== -->
+
+            <div class="site-logo-box">
+
+                <img
+                    class="site-logo"
+                    data-config-image="logo"
+                    src=""
+                    alt=""
+                    hidden
+                >
+
+                <span
+                    class="logo-placeholder"
+                    data-logo-placeholder
+                >
+                    [LOGO]
+                </span>
+
+            </div>
+
+
+            <!-- =============================================
+                 FIRMENNAME / SLOGAN
+            ============================================== -->
+
+            <div class="site-brand-text">
+
+                <strong
+                    class="site-company-name"
+                    data-config="companyName"
+                >
+                    [FIRMENNAME]
+                </strong>
+
+                <span
+                    class="site-slogan"
+                    data-config="slogan"
+                >
+                    [SLOGAN]
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- =================================================
+             HAUPTNAVIGATION
+        ================================================== -->
+
+        <nav
+            class="site-navigation"
+            aria-label="Hauptnavigation"
+        >
+
+
+            <!-- ABHOLUNG -->
+
+            <a
+                href="abholung.html"
+                data-nav-page="abholung.html"
+                data-nav-group="pickup"
+            >
+                Abholung
+            </a>
+
+
+            <!-- VERSAND -->
+
+            <a
+                href="versand.html"
+                data-nav-page="versand.html"
+                data-nav-group="shipping"
+            >
+                Versand
+            </a>
+
+
+            <!-- ÜBER UNS -->
+
+            <a
+                href="ueber-uns.html"
+                data-nav-page="ueber-uns.html"
+            >
+                Über uns
+            </a>
+
+
+            <!-- KONTAKT -->
+
+            <a
+                href="kontakt.html"
+                data-nav-page="kontakt.html"
+            >
+                Kontakt
+            </a>
+
+
+            <!-- FAQ -->
+
+            <a
+                href="faq.html"
+                data-nav-page="faq.html"
+            >
+                Hilfe / FAQ
+            </a>
+
+
+            <!-- =================================================
+                 WARENKORB
+            ================================================== -->
+
+            <a
+                class="site-cart-link"
+                href="warenkorb.html"
+                data-nav-page="warenkorb.html"
+                aria-label="Warenkorb öffnen"
+            >
+
+                <span
+                    class="site-cart-icon"
+                    aria-hidden="true"
+                >
+                    🛒
+                </span>
+
+                <span class="site-cart-text">
+                    Warenkorb
+                </span>
+
+                <span
+                    id="cartCount"
+                    class="site-cart-count"
+                    aria-label="Anzahl der Produkte im Warenkorb"
+                >
+                    0
+                </span>
+
+            </a>
+
+
+            <!-- =================================================
+                 KUNDENKONTO
+            ================================================== -->
+
+            <a
+                class="site-account-link"
+                href="konto.html"
+                data-nav-page="konto.html"
+            >
+
+                <span
+                    class="site-account-icon"
+                    aria-hidden="true"
+                >
+                    👤
+                </span>
+
+                <span class="site-account-text">
+                    Mein Konto
+                </span>
+
+            </a>
+
+
+            <!-- =================================================
+                 DARK MODE
+            ================================================== -->
+
+            <button
+                id="themeToggle"
+                class="site-theme-toggle theme-toggle"
+                type="button"
+                aria-label="Dunklen Modus aktivieren"
+                title="Darstellung wechseln"
+            >
+                🌙
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>

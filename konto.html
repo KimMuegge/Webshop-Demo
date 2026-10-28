@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mein Konto | [FIRMENNAME]</title>
+
+    <!-- KONTO-DESIGN -->
+    <link
+        rel="stylesheet"
+        href="konto.css"
+    >
+
+    <!-- GLOBALER LIGHT / DARK MODE -->
+    <link
+        rel="stylesheet"
+        href="theme.css"
+    >
+
+    <link 
+        rel="stylesheet" 
+        href="components.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         HEADER
+    ================================================== -->
+
+    <div id="siteHeader"></div>
+
+
+    <!-- =================================================
+         HAUPTINHALT
+    ================================================== -->
+
+    <main class="account-page">
+
+        <div class="account-container">
+
+
+            <!-- ZURÜCK -->
+
+            <a
+                class="back-link"
+                href="index.html"
+            >
+                ← Zurück zur Startseite
+            </a>
+
+
+            <!-- =================================================
+                 EINSTIEG
+            ================================================== -->
+
+            <section class="account-intro">
+
+                <div
+                    class="account-icon"
+                    aria-hidden="true"
+                >
+                    👤
+                </div>
+
+                <p class="eyebrow">
+                    MEIN KONTO
+                </p>
+
+                <h1>
+                    Willkommen
+                </h1>
+
+                <p>
+                    Melde dich mit deinem bestehenden Kundenkonto an
+                    oder erstelle ein neues Konto.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 LOGIN UND REGISTRIERUNG
+            ================================================== -->
+
+            <section class="account-options">
+
+
+                <!-- =============================================
+                     LOGIN
+                ============================================== -->
+
+                <article class="account-card login-card">
+
+                    <div
+                        class="card-icon"
+                        aria-hidden="true"
+                    >
+                        🔐
+                    </div>
+
+                    <p class="card-label">
+                        BEREITS KUNDE?
+                    </p>
+
+                    <h2>
+                        Anmelden
+                    </h2>
+
+                    <p class="card-description">
+                        Melde dich an, um persönliche Daten,
+                        Adressen und deine Bestellungen einzusehen.
+                    </p>
+
+
+                    <form
+                        id="loginForm"
+                        class="account-form"
+                    >
+
+                        <!-- E-MAIL -->
+
+                        <label for="loginEmail">
+                            E-Mail-Adresse
+                        </label>
+
+                        <input
+                            id="loginEmail"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            placeholder="name@beispiel.de"
+                            required
+                        >
+
+
+                        <!-- PASSWORT -->
+
+                        <label for="loginPassword">
+                            Passwort
+                        </label>
+
+                        <div class="password-field">
+
+                            <input
+                                id="loginPassword"
+                                name="password"
+                                type="password"
+                                autocomplete="current-password"
+                                placeholder="Passwort"
+                                required
+                            >
+
+                            <button
+                                class="password-toggle"
+                                type="button"
+                                data-password-target="loginPassword"
+                                aria-label="Passwort anzeigen"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+
+                        <!-- PASSWORT VERGESSEN -->
+
+                        <div class="form-helper">
+
+                            <a href="#">
+                                Passwort vergessen?
+                            </a>
+
+                        </div>
+
+
+                        <!-- LOGIN -->
+
+                        <button
+                            class="primary-button"
+                            type="submit"
+                        >
+                            Anmelden
+                        </button>
+
+                    </form>
+
+                </article>
+
+
+                <!-- =============================================
+                     REGISTRIERUNG
+                ============================================== -->
+
+                <article class="account-card register-card">
+
+                    <div
+                        class="card-icon"
+                        aria-hidden="true"
+                    >
+                        ✨
+                    </div>
+
+                    <p class="card-label">
+                        NEU HIER?
+                    </p>
+
+                    <h2>
+                        Kundenkonto erstellen
+                    </h2>
+
+                    <p class="card-description">
+                        Mit einem Kundenkonto kannst du später
+                        deine Bestellungen, Adressen und persönlichen
+                        Angaben zentral verwalten.
+                    </p>
+
+
+                    <form
+                        id="registerForm"
+                        class="account-form"
+                    >
+
+                        <!-- VORNAME -->
+
+                        <label for="registerFirstName">
+                            Vorname
+                        </label>
+
+                        <input
+                            id="registerFirstName"
+                            name="firstName"
+                            type="text"
+                            autocomplete="given-name"
+                            required
+                        >
+
+
+                        <!-- NACHNAME -->
+
+                        <label for="registerLastName">
+                            Nachname
+                        </label>
+
+                        <input
+                            id="registerLastName"
+                            name="lastName"
+                            type="text"
+                            autocomplete="family-name"
+                            required
+                        >
+
+
+                        <!-- E-MAIL -->
+
+                        <label for="registerEmail">
+                            E-Mail-Adresse
+                        </label>
+
+                        <input
+                            id="registerEmail"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            placeholder="name@beispiel.de"
+                            required
+                        >
+
+
+                        <!-- PASSWORT -->
+
+                        <label for="registerPassword">
+                            Passwort
+                        </label>
+
+                        <div class="password-field">
+
+                            <input
+                                id="registerPassword"
+                                name="password"
+                                type="password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                class="password-toggle"
+                                type="button"
+                                data-password-target="registerPassword"
+                                aria-label="Passwort anzeigen"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+
+                        <!-- PASSWORT WIEDERHOLEN -->
+
+                        <label for="registerPasswordConfirm">
+                            Passwort wiederholen
+                        </label>
+
+                        <div class="password-field">
+
+                            <input
+                                id="registerPasswordConfirm"
+                                name="passwordConfirm"
+                                type="password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                class="password-toggle"
+                                type="button"
+                                data-password-target="registerPasswordConfirm"
+                                aria-label="Passwort anzeigen"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+
+                        <!-- DATENSCHUTZ -->
+
+                        <label class="checkbox-field">
+
+                            <input
+                                id="privacyAccepted"
+                                type="checkbox"
+                                required
+                            >
+
+                            <span>
+                                Ich habe die Datenschutzhinweise gelesen.
+                            </span>
+
+                        </label>
+
+
+                        <!-- REGISTRIEREN -->
+
+                        <button
+                            class="primary-button register-button"
+                            type="submit"
+                        >
+                            Kundenkonto erstellen
+                        </button>
+
+                    </form>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 GASTBESTELLUNG
+            ================================================== -->
+
+            <section class="guest-information">
+
+                <div
+                    class="guest-icon"
+                    aria-hidden="true"
+                >
+                    🛒
+                </div>
+
+                <div class="guest-copy">
+
+                    <h2>
+                        Du möchtest kein Kundenkonto?
+                    </h2>
+
+                    <p>
+                        Kein Problem. Du kannst den Webshop auch
+                        ohne Anmeldung nutzen. Beim Checkout kannst
+                        du deine Bestellung als Gast abschließen.
+                    </p>
+
+                </div>
+
+                <a
+                    class="guest-button"
+                    href="index.html"
+                >
+                    Ohne Anmeldung einkaufen
+                </a>
+
+            </section>
+
+
+            <!-- =================================================
+                 VORTEILE EINES KUNDENKONTOS
+            ================================================== -->
+
+            <section class="account-benefits">
+
+                <div class="benefits-heading">
+
+                    <p class="eyebrow">
+                        DEINE VORTEILE
+                    </p>
+
+                    <h2>
+                        Was bietet dir ein Kundenkonto?
+                    </h2>
+
+                </div>
+
+
+                <div class="benefits-grid">
+
+
+                    <!-- BESTELLUNGEN -->
+
+                    <article class="benefit">
+
+                        <div aria-hidden="true">
+                            📋
+                        </div>
+
+                        <h3>
+                            Bestellungen
+                        </h3>
+
+                        <p>
+                            Aktuelle und vergangene
+                            Bestellungen einsehen.
+                        </p>
+
+                    </article>
+
+
+                    <!-- ADRESSEN -->
+
+                    <article class="benefit">
+
+                        <div aria-hidden="true">
+                            🏠
+                        </div>
+
+                        <h3>
+                            Adressen
+                        </h3>
+
+                        <p>
+                            Liefer- und Rechnungsadressen
+                            bequem verwalten.
+                        </p>
+
+                    </article>
+
+
+                    <!-- ABHOLSTANDORT -->
+
+                    <article class="benefit">
+
+                        <div aria-hidden="true">
+                            📍
+                        </div>
+
+                        <h3>
+                            Abholstandort
+                        </h3>
+
+                        <p>
+                            Deinen bevorzugten Abholstandort
+                            hinterlegen.
+                        </p>
+
+                    </article>
+
+
+                    <!-- EINFACHER BESTELLEN -->
+
+                    <article class="benefit">
+
+                        <div aria-hidden="true">
+                            ⚡
+                        </div>
+
+                        <h3>
+                            Einfacher bestellen
+                        </h3>
+
+                        <p>
+                            Bereits hinterlegte Angaben bei
+                            zukünftigen Bestellungen verwenden.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 DATENSCHUTZHINWEIS
+            ================================================== -->
+
+            <section class="privacy-note">
+
+                <div
+                    class="privacy-icon"
+                    aria-hidden="true"
+                >
+                    🔒
+                </div>
+
+                <div>
+
+                    <strong>
+                        Datenschutz
+                    </strong>
+
+                    <p>
+                        Das Kundenkonto ist freiwillig.
+                        Eine Bestellung als Gast bleibt möglich.
+                        Details zur Verarbeitung personenbezogener
+                        Daten werden in den Datenschutzhinweisen
+                        erläutert.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+<!-- =================================================
+     ZENTRALER FOOTER
+================================================= -->
+
+<div id="siteFooter"></div>
+
+
+    <!-- =================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script src="konto.js"></script>
+
+    <script src="theme.js"></script>
+
+    <script src="js/config.js"></script>
+
+    <script src="js/components.js"></script>
+
+
+</body>
+
+</html>

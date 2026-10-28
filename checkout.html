@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Kasse | [FIRMENNAME]
+    </title>
+
+    <meta
+        name="description"
+        content="Schließe deine Bestellung sicher und bequem ab."
+    >
+
+
+    <!-- =================================================
+         STYLESHEETS
+    ================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="checkout.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="theme.css"
+    >
+
+    <link 
+        rel="stylesheet" 
+        href="components.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         HEADER
+    ================================================== -->
+
+    <div id="siteHeader"></div>
+
+
+
+    <!-- =================================================
+         CHECKOUT
+    ================================================== -->
+
+    <main class="checkout-page">
+
+        <div class="checkout-container">
+
+
+            <a
+                class="back-link"
+                href="warenkorb.html"
+            >
+                ← Zurück zum Warenkorb
+            </a>
+
+
+
+            <!-- =================================================
+                 INTRO
+            ================================================== -->
+
+            <section class="checkout-intro">
+
+                <div
+                    class="checkout-icon"
+                    aria-hidden="true"
+                >
+                    ✓
+                </div>
+
+                <p class="eyebrow">
+                    CHECKOUT
+                </p>
+
+                <h1>
+                    Bestellung abschließen
+                </h1>
+
+                <p>
+                    Prüfe deine Angaben und schließe anschließend
+                    deine Bestellung ab.
+                </p>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FORTSCHRITT
+            ================================================== -->
+
+            <div class="checkout-progress">
+
+                <div
+                    id="progressStep1"
+                    class="progress-step active"
+                >
+
+                    <span>
+                        1
+                    </span>
+
+                    <strong>
+                        Zugang
+                    </strong>
+
+                </div>
+
+
+                <div
+                    id="progressLine1"
+                    class="progress-line"
+                >
+                </div>
+
+
+                <div
+                    id="progressStep2"
+                    class="progress-step"
+                >
+
+                    <span>
+                        2
+                    </span>
+
+                    <strong>
+                        Daten
+                    </strong>
+
+                </div>
+
+
+                <div
+                    id="progressLine2"
+                    class="progress-line"
+                >
+                </div>
+
+
+                <div
+                    id="progressStep3"
+                    class="progress-step"
+                >
+
+                    <span>
+                        3
+                    </span>
+
+                    <strong>
+                        Prüfen
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SCHRITT 1
+                 ZUGANG AUSWÄHLEN
+            ================================================== -->
+
+            <section
+                id="checkoutStep1"
+                class="checkout-step"
+            >
+
+                <div class="step-heading">
+
+                    <p class="step-number">
+                        SCHRITT 1
+                    </p>
+
+                    <h2>
+                        Wie möchtest du fortfahren?
+                    </h2>
+
+                    <p>
+                        Du kannst mit Kundenkonto oder ohne
+                        Registrierung bestellen.
+                    </p>
+
+                </div>
+
+
+
+                <div class="checkout-options">
+
+
+                    <!-- =========================================
+                         GAST
+                    ========================================== -->
+
+                    <article class="checkout-option guest-option">
+
+                        <div
+                            class="option-icon"
+                            aria-hidden="true"
+                        >
+                            🛒
+                        </div>
+
+                        <h3>
+                            Als Gast bestellen
+                        </h3>
+
+                        <p>
+                            Schließe deine Bestellung ohne
+                            Registrierung und ohne Kundenkonto ab.
+                        </p>
+
+                        <button
+                            id="continueAsGuest"
+                            class="primary-button"
+                            type="button"
+                        >
+                            Als Gast fortfahren
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- =========================================
+                         ANMELDEN
+                    ========================================== -->
+
+                    <article class="checkout-option">
+
+                        <div
+                            class="option-icon"
+                            aria-hidden="true"
+                        >
+                            👤
+                        </div>
+
+                        <h3>
+                            Anmelden
+                        </h3>
+
+                        <p>
+                            Du hast bereits ein Kundenkonto?
+                            Melde dich an und verwende deine
+                            hinterlegten Daten.
+                        </p>
+
+                        <a
+                            class="secondary-button"
+                            href="konto.html"
+                        >
+                            Zum Kundenkonto
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- =========================================
+                         REGISTRIEREN
+                    ========================================== -->
+
+                    <article class="checkout-option">
+
+                        <div
+                            class="option-icon"
+                            aria-hidden="true"
+                        >
+                            ✨
+                        </div>
+
+                        <h3>
+                            Konto erstellen
+                        </h3>
+
+                        <p>
+                            Erstelle ein Kundenkonto für
+                            zukünftige Bestellungen.
+                        </p>
+
+                        <a
+                            class="secondary-button"
+                            href="konto.html"
+                        >
+                            Kundenkonto erstellen
+                        </a>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SCHRITT 2
+                 GASTDATEN
+            ================================================== -->
+
+            <section
+                id="checkoutStep2"
+                class="checkout-step"
+                hidden
+            >
+
+                <div class="step-heading">
+
+                    <p class="step-number">
+                        SCHRITT 2
+                    </p>
+
+                    <h2>
+                        Deine Angaben
+                    </h2>
+
+                    <p>
+                        Die Angaben werden für die Abwicklung
+                        dieser Bestellung benötigt.
+                    </p>
+
+                </div>
+
+
+
+                <div class="checkout-layout">
+
+
+                    <!-- =========================================
+                         FORMULAR
+                    ========================================== -->
+
+                    <div class="checkout-form-area">
+
+                        <form
+                            id="guestCheckoutForm"
+                            novalidate
+                        >
+
+
+                            <!-- =================================
+                                 KONTAKTDATEN
+                            ================================== -->
+
+                            <fieldset class="form-section">
+
+                                <legend>
+                                    Kontaktdaten
+                                </legend>
+
+
+                                <div class="form-grid two-columns">
+
+
+                                    <!-- VORNAME -->
+
+                                    <div class="form-field">
+
+                                        <label for="guestFirstName">
+                                            Vorname *
+                                        </label>
+
+                                        <input
+                                            id="guestFirstName"
+                                            name="firstName"
+                                            type="text"
+                                            autocomplete="given-name"
+                                            required
+                                        >
+
+                                    </div>
+
+
+
+                                    <!-- NACHNAME -->
+
+                                    <div class="form-field">
+
+                                        <label for="guestLastName">
+                                            Nachname *
+                                        </label>
+
+                                        <input
+                                            id="guestLastName"
+                                            name="lastName"
+                                            type="text"
+                                            autocomplete="family-name"
+                                            required
+                                        >
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                                <!-- E-MAIL -->
+
+                                <div class="form-field">
+
+                                    <label for="guestEmail">
+                                        E-Mail-Adresse *
+                                    </label>
+
+                                    <input
+                                        id="guestEmail"
+                                        name="email"
+                                        type="email"
+                                        autocomplete="email"
+                                        placeholder="name@beispiel.de"
+                                        required
+                                    >
+
+                                    <small>
+                                        An diese Adresse wird später
+                                        deine Bestellbestätigung gesendet.
+                                    </small>
+
+                                </div>
+
+
+
+                                <!-- =================================
+                                     TELEFONNUMMER
+                                ================================== -->
+
+                                <div class="form-field">
+
+                                    <label for="guestPhone">
+                                        Telefonnummer *
+                                    </label>
+
+                                    <input
+                                        id="guestPhone"
+                                        name="phone"
+                                        type="tel"
+                                        autocomplete="tel"
+                                        inputmode="tel"
+                                        placeholder="z. B. 0171 1234567"
+                                        required
+                                    >
+
+                                    <p class="field-hint">
+                                        Die Telefonnummer wird ausschließlich
+                                        zur Abwicklung Ihrer Bestellung verwendet,
+                                        insbesondere um Sie bei wichtigen
+                                        kurzfristigen Änderungen oder einem
+                                        Ausfall Ihrer Bestellung bzw. Abholung
+                                        kontaktieren zu können.
+                                    </p>
+
+                                </div>
+
+
+                            </fieldset>
+
+
+
+                            <!-- =================================
+                                 BESTELLWEG
+                            ================================== -->
+
+                            <fieldset
+                                id="orderTypeSection"
+                                class="form-section"
+                            >
+
+                                <legend>
+                                    Bestellart
+                                </legend>
+
+
+                                <div
+                                    id="shippingOrderInformation"
+                                    class="order-type-information"
+                                >
+
+                                    <strong>
+                                        📦 Versand
+                                    </strong>
+
+                                    <p>
+                                        Deine Bestellung wird an die
+                                        unten angegebene Lieferadresse
+                                        versendet.
+                                    </p>
+
+                                </div>
+
+
+                                <div
+                                    id="pickupOrderInformation"
+                                    class="order-type-information"
+                                    hidden
+                                >
+
+                                    <strong>
+                                        📍 Abholung
+                                    </strong>
+
+                                    <p>
+                                        Deine Bestellung wird an deinem
+                                        ausgewählten Abholstandort
+                                        bereitgestellt.
+                                    </p>
+
+                                </div>
+
+                            </fieldset>
+
+
+
+                            <!-- =================================
+                                 ABHOLINFORMATION
+                                 Nur bei Abholung
+                            ================================== -->
+
+                            <fieldset
+                                id="pickupCheckoutSection"
+                                class="form-section"
+                                hidden
+                            >
+
+                                <legend>
+                                    Abholung
+                                </legend>
+
+
+                                <div class="pickup-checkout-information">
+
+                                    <div
+                                        class="pickup-checkout-icon"
+                                        aria-hidden="true"
+                                    >
+                                        📍
+                                    </div>
+
+
+                                    <div>
+
+                                        <p class="eyebrow">
+                                            ABHOLSTANDORT
+                                        </p>
+
+                                        <h3 id="checkoutPickupLocationName">
+                                            –
+                                        </h3>
+
+                                        <p id="checkoutPickupLocationAddress">
+                                            –
+                                        </p>
+
+
+                                        <div class="pickup-checkout-meta">
+
+                                            <span>
+                                                📅
+                                                <strong id="checkoutPickupDay">
+                                                    –
+                                                </strong>
+                                            </span>
+
+                                            <span>
+                                                🕒
+                                                <strong id="checkoutPickupTime">
+                                                    –
+                                                </strong>
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <a
+                                    class="edit-cart-link"
+                                    href="abholung.html"
+                                >
+                                    Abholstandort ändern
+                                </a>
+
+                            </fieldset>
+
+
+
+                            <!-- =================================
+                                 LIEFERADRESSE
+                                 Nur für Versand
+                            ================================== -->
+
+                            <fieldset
+                                id="shippingAddressSection"
+                                class="form-section"
+                            >
+
+                                <legend>
+                                    Lieferadresse
+                                </legend>
+
+
+                                <div class="form-grid two-columns">
+
+                                    <div class="form-field">
+
+                                        <label for="shippingFirstName">
+                                            Vorname *
+                                        </label>
+
+                                        <input
+                                            id="shippingFirstName"
+                                            name="shippingFirstName"
+                                            type="text"
+                                            autocomplete="shipping given-name"
+                                        >
+
+                                    </div>
+
+
+                                    <div class="form-field">
+
+                                        <label for="shippingLastName">
+                                            Nachname *
+                                        </label>
+
+                                        <input
+                                            id="shippingLastName"
+                                            name="shippingLastName"
+                                            type="text"
+                                            autocomplete="shipping family-name"
+                                        >
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="form-grid address-grid">
+
+                                    <div class="form-field">
+
+                                        <label for="shippingStreet">
+                                            Straße *
+                                        </label>
+
+                                        <input
+                                            id="shippingStreet"
+                                            name="shippingStreet"
+                                            type="text"
+                                            autocomplete="shipping address-line1"
+                                        >
+
+                                    </div>
+
+
+                                    <div class="form-field">
+
+                                        <label for="shippingHouseNumber">
+                                            Hausnummer *
+                                        </label>
+
+                                        <input
+                                            id="shippingHouseNumber"
+                                            name="shippingHouseNumber"
+                                            type="text"
+                                        >
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="form-grid address-grid">
+
+                                    <div class="form-field">
+
+                                        <label for="shippingCity">
+                                            Ort *
+                                        </label>
+
+                                        <input
+                                            id="shippingCity"
+                                            name="shippingCity"
+                                            type="text"
+                                            autocomplete="shipping address-level2"
+                                        >
+
+                                    </div>
+
+
+                                    <div class="form-field">
+
+                                        <label for="shippingZip">
+                                            PLZ *
+                                        </label>
+
+                                        <input
+                                            id="shippingZip"
+                                            name="shippingZip"
+                                            type="text"
+                                            inputmode="numeric"
+                                            autocomplete="shipping postal-code"
+                                            maxlength="5"
+                                        >
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-field">
+
+                                    <label for="shippingCountry">
+                                        Land *
+                                    </label>
+
+                                    <select
+                                        id="shippingCountry"
+                                        name="shippingCountry"
+                                    >
+
+                                        <option value="DE">
+                                            Deutschland
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </fieldset>
+
+
+
+                            <!-- =================================
+                                 RECHNUNGSADRESSE
+                                 Nur Versand
+                            ================================== -->
+
+                            <fieldset
+                                id="billingAddressSection"
+                                class="form-section"
+                            >
+
+                                <legend>
+                                    Rechnungsadresse
+                                </legend>
+
+
+                                <label class="checkbox-field">
+
+                                    <input
+                                        id="differentBillingAddress"
+                                        type="checkbox"
+                                    >
+
+                                    <span>
+                                        Die Rechnungsadresse weicht
+                                        von der Lieferadresse ab.
+                                    </span>
+
+                                </label>
+
+
+
+                                <div
+                                    id="billingFields"
+                                    class="billing-fields"
+                                    hidden
+                                >
+
+                                    <h3>
+                                        Abweichende Rechnungsadresse
+                                    </h3>
+
+
+                                    <div class="form-grid two-columns">
+
+                                        <div class="form-field">
+
+                                            <label for="billingFirstName">
+                                                Vorname *
+                                            </label>
+
+                                            <input
+                                                id="billingFirstName"
+                                                type="text"
+                                                autocomplete="billing given-name"
+                                            >
+
+                                        </div>
+
+
+                                        <div class="form-field">
+
+                                            <label for="billingLastName">
+                                                Nachname *
+                                            </label>
+
+                                            <input
+                                                id="billingLastName"
+                                                type="text"
+                                                autocomplete="billing family-name"
+                                            >
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="form-grid address-grid">
+
+                                        <div class="form-field">
+
+                                            <label for="billingStreet">
+                                                Straße *
+                                            </label>
+
+                                            <input
+                                                id="billingStreet"
+                                                type="text"
+                                                autocomplete="billing address-line1"
+                                            >
+
+                                        </div>
+
+
+                                        <div class="form-field">
+
+                                            <label for="billingHouseNumber">
+                                                Hausnummer *
+                                            </label>
+
+                                            <input
+                                                id="billingHouseNumber"
+                                                type="text"
+                                            >
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="form-grid address-grid">
+
+                                        <div class="form-field">
+
+                                            <label for="billingCity">
+                                                Ort *
+                                            </label>
+
+                                            <input
+                                                id="billingCity"
+                                                type="text"
+                                                autocomplete="billing address-level2"
+                                            >
+
+                                        </div>
+
+
+                                        <div class="form-field">
+
+                                            <label for="billingZip">
+                                                PLZ *
+                                            </label>
+
+                                            <input
+                                                id="billingZip"
+                                                type="text"
+                                                inputmode="numeric"
+                                                autocomplete="billing postal-code"
+                                                maxlength="5"
+                                            >
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </fieldset>
+
+
+
+                            <!-- =================================
+                                 DATENSCHUTZ
+                            ================================== -->
+
+                            <div class="privacy-information">
+
+                                <div aria-hidden="true">
+                                    🔒
+                                </div>
+
+                                <p>
+                                    Die im Rahmen der Bestellung angegebenen
+                                    personenbezogenen Daten werden für die
+                                    Abwicklung der Bestellung benötigt.
+                                    Weitere Informationen werden später in
+                                    der Datenschutzerklärung bereitgestellt.
+                                </p>
+
+                            </div>
+
+
+
+                            <!-- =================================
+                                 NÄCHSTER SCHRITT
+                            ================================== -->
+
+                            <button
+                                id="reviewOrderButton"
+                                class="continue-button"
+                                type="submit"
+                            >
+                                Bestellung prüfen
+                            </button>
+
+
+                        </form>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         BESTELLÜBERSICHT
+                    ========================================== -->
+
+                    <aside class="checkout-summary">
+
+                        <h2>
+                            Deine Bestellung
+                        </h2>
+
+
+                        <div
+                            id="checkoutItems"
+                            class="checkout-items"
+                        >
+                        </div>
+
+
+                        <div
+                            id="checkoutEmptyCart"
+                            class="checkout-empty-cart"
+                            hidden
+                        >
+
+                            <p>
+                                Dein Warenkorb ist leer.
+                            </p>
+
+                            <a href="versand.html">
+                                Produkte entdecken
+                            </a>
+
+                        </div>
+
+
+
+                        <div class="summary-divider">
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Zwischensumme
+                            </span>
+
+                            <strong id="checkoutSubtotal">
+                                0,00 €
+                            </strong>
+
+                        </div>
+
+
+
+                        <div
+                            id="shippingCostRow"
+                            class="summary-row"
+                        >
+
+                            <span>
+                                Versand
+                            </span>
+
+                            <span>
+                                wird später berechnet
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="summary-divider">
+                        </div>
+
+
+                        <div class="summary-row total-row">
+
+                            <span>
+                                Warenwert
+                            </span>
+
+                            <strong id="checkoutTotal">
+                                0,00 €
+                            </strong>
+
+                        </div>
+
+
+                        <a
+                            class="edit-cart-link"
+                            href="warenkorb.html"
+                        >
+                            Warenkorb bearbeiten
+                        </a>
+
+                    </aside>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SCHRITT 3
+                 BESTELLUNG PRÜFEN
+            ================================================== -->
+
+            <section
+                id="checkoutStep3"
+                class="checkout-step"
+                hidden
+            >
+
+                <div class="step-heading">
+
+                    <p class="step-number">
+                        SCHRITT 3
+                    </p>
+
+                    <h2>
+                        Bestellung prüfen
+                    </h2>
+
+                    <p>
+                        Bitte prüfe deine Angaben vor dem
+                        Abschluss noch einmal sorgfältig.
+                    </p>
+
+                </div>
+
+
+
+                <div class="review-layout">
+
+
+                    <!-- KONTAKT -->
+
+                    <article class="review-card">
+
+                        <div class="review-card-heading">
+
+                            <h3>
+                                Kontaktdaten
+                            </h3>
+
+                            <button
+                                id="editContactData"
+                                class="edit-button"
+                                type="button"
+                            >
+                                Bearbeiten
+                            </button>
+
+                        </div>
+
+
+                        <p id="reviewContactName">
+                            –
+                        </p>
+
+                        <p id="reviewContactEmail">
+                            –
+                        </p>
+
+                        <p id="reviewContactPhone">
+                            –
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- =========================================
+                         VERSANDADRESSE
+                    ========================================== -->
+
+                    <article
+                        id="reviewShippingCard"
+                        class="review-card"
+                    >
+
+                        <div class="review-card-heading">
+
+                            <h3>
+                                Lieferadresse
+                            </h3>
+
+                            <button
+                                id="editShippingData"
+                                class="edit-button"
+                                type="button"
+                            >
+                                Bearbeiten
+                            </button>
+
+                        </div>
+
+
+                        <address id="reviewShippingAddress">
+                            –
+                        </address>
+
+
+                        <div
+                            id="reviewBillingAddress"
+                            class="review-billing-address"
+                            hidden
+                        >
+
+                            <strong>
+                                Rechnungsadresse
+                            </strong>
+
+                            <address id="reviewBillingAddressText">
+                                –
+                            </address>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =========================================
+                         ABHOLUNG
+                    ========================================== -->
+
+                    <article
+                        id="reviewPickupCard"
+                        class="review-card"
+                        hidden
+                    >
+
+                        <div class="review-card-heading">
+
+                            <h3>
+                                Abholung
+                            </h3>
+
+                            <button
+                                id="editPickupData"
+                                class="edit-button"
+                                type="button"
+                            >
+                                Bearbeiten
+                            </button>
+
+                        </div>
+
+
+                        <p id="reviewPickupLocationName">
+                            –
+                        </p>
+
+                        <p id="reviewPickupLocationAddress">
+                            –
+                        </p>
+
+                        <p id="reviewPickupDateTime">
+                            –
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- =========================================
+                         BESTELLUNG
+                    ========================================== -->
+
+                    <article class="review-card full-width">
+
+                        <div class="review-card-heading">
+
+                            <h3>
+                                Bestellung
+                            </h3>
+
+                            <a
+                                class="edit-button"
+                                href="warenkorb.html"
+                            >
+                                Warenkorb bearbeiten
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            id="reviewOrderItems"
+                            class="review-order-items"
+                        >
+                        </div>
+
+
+                        <div class="review-order-total">
+
+                            <span>
+                                Warenwert
+                            </span>
+
+                            <strong id="reviewOrderTotal">
+                                0,00 €
+                            </strong>
+
+                        </div>
+
+
+                        <p
+                            id="reviewShippingNote"
+                            class="review-shipping-note"
+                        >
+                            Versandkosten werden später ergänzt.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- =========================================
+                         ZAHLUNG
+                    ========================================== -->
+
+                    <article class="review-card full-width">
+
+                        <h3>
+                            Zahlung
+                        </h3>
+
+
+                        <div
+                            id="shippingPaymentPlaceholder"
+                            class="placeholder-note"
+                        >
+                            Die Online-Zahlungsarten werden
+                            später mit dem Backend beziehungsweise
+                            Zahlungsanbieter ergänzt.
+                        </div>
+
+
+                        <div
+                            id="pickupPaymentPlaceholder"
+                            class="placeholder-note"
+                            hidden
+                        >
+                            Für die Abholbestellung ist die Zahlung
+                            bei der Abholung vorgesehen. Die konkret
+                            verfügbaren Zahlungsmittel werden noch
+                            festgelegt.
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LETZTE BESTÄTIGUNG
+                ================================================== -->
+
+                <div class="final-confirmation">
+
+                    <label class="checkbox-field">
+
+                        <input
+                            id="confirmOrder"
+                            type="checkbox"
+                        >
+
+                        <span>
+                            Ich bestätige, dass ich meine Angaben
+                            und die Bestellung geprüft habe.
+                        </span>
+
+                    </label>
+
+
+                    <p class="legal-placeholder">
+                        Die endgültigen Hinweise zu AGB,
+                        Widerrufsrecht und Datenschutz werden
+                        vor dem produktiven Einsatz ergänzt.
+                    </p>
+
+
+                    <button
+                        id="placeOrderButton"
+                        class="order-button"
+                        type="button"
+                    >
+                        Bestellung abschließen
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ERFOLGSBEREICH
+            ================================================== -->
+
+            <section
+                id="checkoutSuccess"
+                class="checkout-success"
+                hidden
+            >
+
+                <div
+                    class="success-icon"
+                    aria-hidden="true"
+                >
+                    ✓
+                </div>
+
+                <p class="eyebrow">
+                    BESTELLUNG ERFASST
+                </p>
+
+                <h2>
+                    Vielen Dank für deine Bestellung!
+                </h2>
+
+                <p>
+                    Im fertigen Webshop erhältst du an dieser
+                    Stelle deine Bestellnummer und eine
+                    Bestellbestätigung.
+                </p>
+
+
+                <div class="demo-note">
+
+                    <strong>
+                        Prototyp
+                    </strong>
+
+                    <p>
+                        Aktuell wird noch keine echte Bestellung
+                        übertragen oder serverseitig gespeichert.
+                    </p>
+
+                </div>
+
+
+                <a
+                    class="primary-button"
+                    href="index.html"
+                >
+                    Zurück zur Startseite
+                </a>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+<!-- =================================================
+     ZENTRALER FOOTER
+================================================= -->
+
+<div id="siteFooter"></div>
+
+
+
+    <!-- =================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script src="checkout.js"></script>
+    <script src="theme.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/components.js"></script>
+
+
+</body>
+
+</html>

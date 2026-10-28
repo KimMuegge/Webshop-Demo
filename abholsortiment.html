@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Abholsortiment | [FIRMENNAME]
+    </title>
+
+    <meta
+        name="description"
+        content="Entdecke unser verfügbares Abholsortiment für deinen ausgewählten Abholstandort."
+    >
+
+
+    <!-- =================================================
+         STYLESHEETS
+    ================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="abholsortiment.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="theme.css"
+    >
+
+    <link
+    rel="stylesheet"
+    href="components.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         HEADER
+    ================================================== -->
+
+    <div id="siteHeader"></div>
+
+
+
+
+
+
+
+    <!-- =================================================
+         HAUPTINHALT
+    ================================================== -->
+
+    <main class="pickup-shop-page">
+
+        <div class="pickup-shop-container">
+
+
+            <!-- =================================================
+                 ZURÜCK
+            ================================================== -->
+
+            <a
+                class="back-link"
+                href="abholung.html"
+            >
+                ← Anderen Abholstandort wählen
+            </a>
+
+
+
+            <!-- =================================================
+                 INTRO
+            ================================================== -->
+
+            <section class="pickup-shop-intro">
+
+                <div
+                    class="pickup-shop-icon"
+                    aria-hidden="true"
+                >
+                    🛍️
+                </div>
+
+
+                <p class="eyebrow">
+                    ABHOLSORTIMENT
+                </p>
+
+
+                <h1>
+                    Entdecke unser Abholsortiment
+                </h1>
+
+
+                <p>
+                    Hier findest du die Produkte,
+                    die für deinen ausgewählten
+                    Abholstandort verfügbar sind.
+                </p>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 AUSGEWÄHLTER STANDORT
+
+                 Die Inhalte werden später durch
+                 abholsortiment.js eingesetzt.
+            ================================================== -->
+
+            <section
+                id="pickupLocationSection"
+                class="selected-location"
+            >
+
+                <div
+                    class="selected-location-icon"
+                    aria-hidden="true"
+                >
+                    📍
+                </div>
+
+
+                <div class="selected-location-content">
+
+                    <p class="location-label">
+                        DEIN ABHOLSTANDORT
+                    </p>
+
+
+                    <h2 id="pickupLocationName">
+                        Abholstandort wird geladen …
+                    </h2>
+
+
+                    <p id="pickupLocationAddress">
+                        Standortdaten werden geladen …
+                    </p>
+
+
+                    <div class="selected-location-meta">
+
+                        <span>
+
+                            📅
+
+                            <strong id="pickupLocationDay">
+                                –
+                            </strong>
+
+                        </span>
+
+
+                        <span>
+
+                            🕒
+
+                            <strong id="pickupLocationTime">
+                                –
+                            </strong>
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    class="change-location-button"
+                    href="abholung.html"
+                >
+                    Standort ändern
+                </a>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 KEIN STANDORT VORHANDEN
+
+                 Wird durch JavaScript angezeigt, falls jemand
+                 abholsortiment.html direkt aufruft.
+            ================================================== -->
+
+            <section
+                id="missingLocation"
+                class="missing-location"
+                hidden
+            >
+
+                <div
+                    class="missing-location-icon"
+                    aria-hidden="true"
+                >
+                    📍
+                </div>
+
+
+                <h2>
+                    Bitte wähle zuerst einen Abholstandort
+                </h2>
+
+
+                <p>
+                    Bevor wir dir das passende Abholsortiment
+                    anzeigen können, benötigen wir deinen
+                    gewünschten Abholstandort.
+                </p>
+
+
+                <a
+                    class="primary-button"
+                    href="abholung.html"
+                >
+                    Abholstandort auswählen
+                </a>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SORTIMENT
+
+                 Dieser Bereich wird ausgeblendet, falls kein
+                 gültiger Abholstandort vorhanden ist.
+            ================================================== -->
+
+            <div id="pickupShopContent">
+
+
+                <!-- =================================================
+                     SHOP-WERKZEUGE
+                ================================================== -->
+
+                <section class="shop-tools">
+
+
+                    <!-- SUCHE -->
+
+                    <div class="product-search">
+
+                        <label for="productSearch">
+                            Produkte durchsuchen
+                        </label>
+
+
+                        <div class="product-search-field">
+
+                            <span
+                                aria-hidden="true"
+                            >
+                                🔍
+                            </span>
+
+
+                            <input
+                                id="productSearch"
+                                type="search"
+                                placeholder="Produkt suchen …"
+                                autocomplete="off"
+                            >
+
+
+                            <button
+                                id="clearProductSearch"
+                                class="clear-search-button"
+                                type="button"
+                                aria-label="Produktsuche leeren"
+                                hidden
+                            >
+                                ×
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ERGEBNISANZAHL -->
+
+                    <div class="product-result-info">
+
+                        <span id="productCount">
+                            0 Produkte
+                        </span>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     KATEGORIEFILTER
+                ================================================== -->
+
+                <section
+                    class="category-filter"
+                    aria-label="Produktkategorien"
+                >
+
+                    <button
+                        class="category-button active"
+                        type="button"
+                        data-category="all"
+                    >
+                        Alle
+                    </button>
+
+                    <button
+                        class="category-button"
+                        type="button"
+                        data-category="obst"
+                    >
+                        🍎 Obst
+                    </button>
+
+                    <button
+                        class="category-button"
+                        type="button"
+                        data-category="gemuese"
+                    >
+                        🥕 Gemüse
+                    </button>
+
+                    <button
+                        class="category-button"
+                        type="button"
+                        data-category="kisten"
+                    >
+                        📦 Kisten & Pakete
+                    </button>
+
+                    <button
+                        class="category-button"
+                        type="button"
+                        data-category="trockenartikel"
+                    >
+                        🥜 Trockenartikel
+                    </button>
+
+                    <button
+                        class="category-button"
+                        type="button"
+                        data-category="snacks"
+                    >
+                        🍫 Snacks & Süßes
+                    </button>
+
+                    <button
+                        class="category-button"
+                        type="button"
+                        data-category="getraenke"
+                    >
+                        🧃 Getränke
+                    </button>
+
+                    <button
+                        class="category-button"
+                        type="button"
+                        data-category="tierbedarf"
+                    >
+                        🐾 Tierbedarf
+                    </button>
+
+                    <button
+                        class="category-button"
+                        type="button"
+                        data-category="non-food"
+                    >
+                        🧴 Non-Food
+                    </button>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     ZUSATZFILTER
+                ================================================== -->
+
+                <section class="special-filters">
+
+                    <label class="special-filter">
+
+                        <input
+                            id="offerFilter"
+                            type="checkbox"
+                        >
+
+                        <span>
+                            🔥 Nur Angebote
+                        </span>
+
+                    </label>
+
+
+                    <label class="special-filter">
+
+                        <input
+                            id="organicFilter"
+                            type="checkbox"
+                        >
+
+                        <span>
+                            🌱 Nur Bio
+                        </span>
+
+                    </label>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     PRODUKTBEREICH
+                ================================================== -->
+
+                <section class="products-section">
+
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                PRODUKTE
+                            </p>
+
+                            <h2>
+                                Verfügbar zur Abholung
+                            </h2>
+
+                        </div>
+
+
+                        <p>
+                            Das Sortiment kann je nach verfügbarer
+                            Ware wechseln.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- =============================================
+                         PRODUKTLISTE
+
+                         Produkte werden mit JavaScript eingefügt.
+                    ============================================== -->
+
+                    <div
+                        id="productGrid"
+                        class="product-grid"
+                    >
+                    </div>
+
+
+
+                    <!-- =============================================
+                         KEINE PRODUKTE GEFUNDEN
+                    ============================================== -->
+
+                    <div
+                        id="emptyProducts"
+                        class="empty-products"
+                        hidden
+                    >
+
+                        <div
+                            aria-hidden="true"
+                        >
+                            🔍
+                        </div>
+
+                        <h3>
+                            Keine passenden Produkte gefunden
+                        </h3>
+
+                        <p>
+                            Ändere deine Suche oder deine Filter.
+                        </p>
+
+
+                        <button
+                            id="resetProductFilters"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Filter zurücksetzen
+                        </button>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     WICHTIGER HINWEIS
+                ================================================== -->
+
+                <section class="pickup-information">
+
+                    <div
+                        class="pickup-information-icon"
+                        aria-hidden="true"
+                    >
+                        ℹ️
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Wechselndes Sortiment
+                        </strong>
+
+                        <p>
+                            Welche Produkte verfügbar sind,
+                            hängt von der jeweils vorhandenen
+                            Ware ab. Deshalb kann sich unser
+                            Abholsortiment regelmäßig ändern.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     WARENKORB CTA
+                ================================================== -->
+
+                <section class="cart-cta">
+
+                    <div
+                        class="cart-cta-icon"
+                        aria-hidden="true"
+                    >
+                        🛒
+                    </div>
+
+
+                    <div class="cart-cta-copy">
+
+                        <p class="eyebrow">
+                            DEINE AUSWAHL
+                        </p>
+
+                        <h2>
+                            Schon etwas gefunden?
+                        </h2>
+
+                        <p>
+                            Deine ausgewählten Produkte findest
+                            du jederzeit in deinem Warenkorb.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        class="cart-cta-button"
+                        href="warenkorb.html"
+                    >
+                        Zum Warenkorb
+
+                        <span
+                            id="cartCtaCount"
+                            class="cart-cta-count"
+                        >
+                            0
+                        </span>
+                    </a>
+
+                </section>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+<!-- =================================================
+     ZENTRALER FOOTER
+================================================= -->
+
+<div id="siteFooter"></div>
+
+    
+
+    <!-- =================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script src="abholsortiment.js"></script>
+
+    <script src="theme.js"></script>
+
+    <script src="js/config.js"></script>
+
+    <script src="js/components.js"></script>
+
+
+</body>
+
+</html>
